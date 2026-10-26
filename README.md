@@ -6,7 +6,7 @@ Bilingual, English-first portfolio for **https://fortranmentis.github.io/**.
 
 - `index.html`: English portfolio
 - `ko/index.html`: Korean portfolio
-- `style.css`: responsive navy/mint visual system
+- `style.css`: responsive light visual system with large type, blue actions, a dark product spotlight, and teal gradients
 - `script.js`: accessible project filters; all content remains available without JavaScript
 - `assets/`: local graphics and public project screenshots
 
