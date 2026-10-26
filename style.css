@@ -48,3 +48,18 @@ html[lang=ko] .node{font-size:20px}
  .footer{font-size:11px;line-height:1.6}
 }
 @media(max-width:540px){.node small{font-size:14px}.system-caption{font-size:14px;line-height:1.5}.system-top{font-size:12px}.hero-name{font-size:12px}.system{padding-bottom:65px}}
+/* App Store originals: uncropped screens, readable at phone size. */
+.app-media{order:1;width:min(100%,960px);margin-top:44px;position:relative;min-width:0}
+.store-gallery{display:flex;gap:28px;justify-content:center;align-items:flex-start;padding:16px 12px 30px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#555 #181818}
+.store-shot{flex:0 0 calc((100% - 56px)/3);max-width:285px;min-width:0;margin:0;scroll-snap-align:center}
+.store-shot a{display:block;border:5px solid #34363b;border-radius:29px;background:#0c141b;overflow:hidden;box-shadow:0 18px 44px #0005;transition:transform .2s}
+.store-shot a:hover{transform:translateY(-5px)}
+.store-shot img{width:100%;height:auto;display:block;aspect-ratio:720/1561;object-fit:contain}
+.store-shot figcaption{font-size:14px;color:#b0b0b7;line-height:1.45;margin-top:19px}
+.store-source{font-size:12px;color:#919199;line-height:1.5;margin:3px 0 31px}
+.gallery-hint{display:none}
+.app-reverse .store-gallery{scrollbar-color:#aaa #e8e8ed}
+.app-reverse .store-shot a{border-color:white;background:white;box-shadow:0 18px 45px #183b451c}
+.app-reverse .store-shot figcaption{color:#6e6e73}.app-reverse .store-source{color:#6e6e73}
+@media(max-width:760px){.app-media{width:calc(100% + 22px);margin-top:31px}.store-gallery{justify-content:flex-start;gap:22px;padding:16px 10px 27px}.store-shot{flex:0 0 65%;max-width:285px}.gallery-hint{display:block;font-size:13px;color:#a1a1a6;margin:0 0 10px}.app-reverse .gallery-hint{color:#6e6e73}.store-shot figcaption{font-size:14px}.store-source{font-size:12px;margin-bottom:25px}}
+@media(max-width:540px){.app-media{width:calc(100% + 22px)}.store-shot{flex-basis:82%;max-width:275px}.store-gallery{gap:20px;padding-inline:8px}.store-shot a{border-width:4px;border-radius:26px}.store-shot figcaption{font-size:14px;margin-top:16px}}
