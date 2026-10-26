@@ -7,3 +7,44 @@
 @media(max-width:540px){:root{scroll-padding-top:74px}.header{height:57px;padding-inline:21px;gap:18px}.wordmark>span:last-child{display:none}.monogram{font-size:28px}nav{gap:21px;font-size:10px}.language{font-size:9px;gap:6px}.wrap{width:calc(100% - 40px)}.hero{padding-top:57px}.hero .eyebrow{font-size:9px;letter-spacing:.065em;margin-bottom:22px}.hero h1{font-size:55px;line-height:1.04;letter-spacing:-.06em}.intro{font-size:19px;line-height:1.45;margin-top:22px}.hero .actions{gap:18px;margin-top:26px}.button{font-size:12px;padding:12px 19px;min-height:42px;gap:12px}.hero .text-link{font-size:11px;gap:6px}.hero-name{font-size:7px;margin-top:25px;letter-spacing:.07em}.system{margin-top:23px;min-height:320px;padding:43px 21px 47px;grid-template-columns:repeat(2,1fr);gap:13px 20px;max-width:380px;background:radial-gradient(ellipse,#cae8f183,transparent 75%)}.system-top{top:7px;font-size:7px}.node{padding:14px 8px;min-height:103px;font-size:10px;border-radius:18px}.node-icon{font-size:24px;margin-bottom:10px}.node small{font-size:7px;margin-top:7px}.n0{transform:rotate(-5deg)}.n1{transform:translateY(8px) rotate(5deg)}.n2{transform:rotate(-5deg)}.n3{transform:translateY(8px) rotate(5deg)}.system-caption{font-size:7px;bottom:4px;line-height:1.5}.focus-strip{margin-top:14px}.focus-strip .wrap{gap:12px 21px;display:grid;grid-template-columns:1fr 1fr;text-align:center;padding-block:19px;font-size:9px}.focus-strip span:before{display:none}.apps-section{padding-top:58px}.apps-section>.eyebrow{font-size:10px;margin-bottom:16px}.apps-section>h2{font-size:37px;padding-inline:25px;line-height:1.08}.section-intro{font-size:19px;line-height:1.4;margin:20px 30px 34px}.app{padding:48px 23px 0;margin:8px 8px 0}.app-copy .eyebrow{font-size:14px;margin-bottom:17px}.app-copy h3{font-size:39px;margin-bottom:21px}.app-copy>p:not(.eyebrow):not(.stack):not(.caption){font-size:17px;line-height:1.5}.app .stack{font-size:9px!important;line-height:1.7!important}.app .actions{gap:19px;margin-top:22px}.app .text-link{font-size:11px}.app .caption{font-size:8px;line-height:1.6;margin-top:20px}.app-image{margin-top:31px;width:calc(100% + 10px);padding:0}.app-image img{border-radius:8px 8px 0 0;transform:none}.app-image:before{inset:0;filter:blur(40px)}.image-caption{font-size:6px;letter-spacing:.04em;margin:15px 0 18px}.app-reverse .app-image img{border-radius:15px;margin-bottom:15px}.app-reverse .app-copy .eyebrow{font-size:12px}.case-section{padding-block:65px}.case-section>.eyebrow{font-size:8px}.case-heading h2{font-size:34px;line-height:1.12}.case-heading>p{font-size:18px;line-height:1.5;margin-top:23px}.steps{margin-top:29px}.step{padding:24px;grid-template-columns:40px 1fr;gap:0 15px;border-radius:21px}.step-mark{width:36px;height:36px;font-size:11px}.step h3{font-size:21px}.step p{font-size:14px}.case-section>.text-link{font-size:13px}.work-section{padding-block:62px}.section-heading h2{font-size:37px}.section-heading .eyebrow{font-size:10px}.section-heading>p{font-size:18px;line-height:1.5;margin-top:22px}.filters{gap:7px;margin-top:28px}.filters button{font-size:10px;padding:10px 14px}.result-count{font-size:8px;margin:18px 0 21px}.project-grid{grid-template-columns:1fr;gap:16px}.project{padding:28px;border-radius:24px}.project-meta{font-size:8px;margin-bottom:21px}.project h3{font-size:27px;line-height:1.1}.project-headline{font-size:16px}.project>p:not(.project-headline):not(.stack){font-size:14px}.project .stack{font-size:9px!important}.project .text-link{font-size:12px}.project details{margin-top:7px}.about-section{padding-block:65px}.about-section>.wrap>.eyebrow{font-size:10px}.about-grid h2{font-size:37px;line-height:1.1}.about-body{font-size:19px}.about-grid h3{font-size:19px}.methods h4{font-size:16px}.methods p{font-size:13px}.background{padding:26px;border-radius:24px}.timeline p,.credentials p{font-size:12px}.timeline h4{font-size:18px}.credentials ul{font-size:12px;line-height:2.2}.contact{padding-block:62px}.contact .eyebrow{font-size:9px}.contact h2{font-size:38px;line-height:1.1}.contact p:not(.eyebrow){font-size:18px;line-height:1.5}.contact-links{gap:25px}.contact-links>a{font-size:15px}.footer{font-size:8px;padding-block:24px;line-height:1.5;gap:16px}html[lang=ko] h1{font-size:46px;line-height:1.14}html[lang=ko] h2{font-size:34px;line-height:1.16}html[lang=ko] .app-copy h3{font-size:36px;line-height:1.14}html[lang=ko] .project h3{font-size:26px}html[lang=ko] .node{font-size:10px}}
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*{transition:none!important}}
 html[lang=ko] body{word-break:keep-all;overflow-wrap:break-word}html[lang=ko] .project h3{overflow-wrap:anywhere}
+/* Readable supporting type across diagrams, navigation and project metadata. */
+.hero-name{font-size:13px;color:#6e6e73}
+.system-top{font-size:12px;color:#657b85}
+.system-caption{font-size:14px;color:#627b85}
+.system{min-height:385px;padding-block:75px 85px}
+.node{font-size:20px;line-height:1.25;min-height:185px;padding:26px 14px}
+.node small{font-size:14px;line-height:1.45;color:#627b85}
+.node-icon{font-size:40px}
+.focus-strip .wrap{font-size:14px;gap:40px}
+nav{font-size:14px}.language{font-size:13px}
+.eyebrow{font-size:14px}.hero .eyebrow{font-size:14px}
+.stack{font-size:14px!important}.project .stack{font-size:13px!important;color:#6e6e73!important}
+.app .caption{font-size:13px;color:#a1a1a6}.app-reverse .caption{color:#6e6e73}
+.image-caption{font-size:11px}.project-meta{font-size:12px}.project summary{font-size:14px}
+.result-count{font-size:12px}.timeline time{font-size:13px}.footer{font-size:12px}
+html[lang=ko] .node{font-size:20px}
+@media(max-width:1050px){
+ .node{font-size:18px;padding:24px 12px;min-height:185px}.node small{font-size:13px}
+ html[lang=ko] .node{font-size:18px}.focus-strip .wrap{font-size:13px;gap:24px}
+}
+@media(max-width:760px){
+ .node{font-size:16px;min-height:175px;padding:20px 9px}.node small{font-size:12px}.node-icon{font-size:34px}
+ html[lang=ko] .node{font-size:16px}.system{min-height:365px;padding:65px 7px 75px}
+ .system-top{font-size:11px}.system-caption{font-size:13px}.hero-name{font-size:12px}
+ .focus-strip .wrap{font-size:12px;gap:18px}.app .caption{font-size:12px}.image-caption{font-size:10px}
+ .filters button{font-size:13px}.footer{font-size:11px}
+}
+@media(max-width:540px){
+ nav{font-size:12px;gap:18px}.language{font-size:11px}.hero .eyebrow{font-size:12px}
+ .hero-name{font-size:11px;letter-spacing:.04em}.hero .text-link{font-size:14px}.button{font-size:14px}
+ .system{min-height:425px;padding:50px 15px 55px;gap:18px}
+ .system-top{font-size:11px}.system-caption{font-size:12px;bottom:2px}
+ .node{font-size:16px;min-height:140px;padding:20px 10px}.node small{font-size:12px;margin-top:10px}.node-icon{font-size:30px}
+ html[lang=ko] .node{font-size:16px}.focus-strip .wrap{font-size:12px;gap:15px}
+ .apps-section>.eyebrow,.case-section>.eyebrow,.section-heading .eyebrow,.about-section>.wrap>.eyebrow,.contact .eyebrow{font-size:12px}
+ .app .stack{font-size:12px!important}.app .caption{font-size:12px;line-height:1.65}.app .text-link{font-size:13px}
+ .image-caption{font-size:10px;line-height:1.5}.project-meta{font-size:11px}.project .stack{font-size:12px!important}
+ .project summary{font-size:13px}.result-count{font-size:12px}.filters button{font-size:12px}.timeline time{font-size:12px}
+ .footer{font-size:11px;line-height:1.6}
+}
+@media(max-width:540px){.node small{font-size:14px}.system-caption{font-size:14px;line-height:1.5}.system-top{font-size:12px}.hero-name{font-size:12px}.system{padding-bottom:65px}}
