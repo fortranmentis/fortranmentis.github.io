@@ -63,3 +63,5 @@ html[lang=ko] .node{font-size:20px}
 .app-reverse .store-shot figcaption{color:#6e6e73}.app-reverse .store-source{color:#6e6e73}
 @media(max-width:760px){.app-media{width:calc(100% + 22px);margin-top:31px}.store-gallery{justify-content:flex-start;gap:22px;padding:16px 10px 27px}.store-shot{flex:0 0 65%;max-width:285px}.gallery-hint{display:block;font-size:13px;color:#a1a1a6;margin:0 0 10px}.app-reverse .gallery-hint{color:#6e6e73}.store-shot figcaption{font-size:14px}.store-source{font-size:12px;margin-bottom:25px}}
 @media(max-width:540px){.app-media{width:calc(100% + 22px)}.store-shot{flex-basis:82%;max-width:275px}.store-gallery{gap:20px;padding-inline:8px}.store-shot a{border-width:4px;border-radius:26px}.store-shot figcaption{font-size:14px;margin-top:16px}}
+.service-duties{margin:15px 0 0;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.65}.service-duties li{padding:0 0 8px;border:0}.service-duties li:last-child{padding-bottom:0}.service-entry strong{color:var(--ink);font-weight:600}
+@media(max-width:540px){.service-duties{font-size:14px;line-height:1.7}.service-entry h4{font-size:18px}}
