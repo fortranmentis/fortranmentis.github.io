@@ -18,3 +18,12 @@ The owner’s 2024 annual work report records the poster at the 2024 fall confer
 - `ais-demo.webp`: first frame of the public repository's `assets/ship_movement_DOCK_SPEED_demo2.gif`, optimized to WebP. Original: https://github.com/fortranmentis/Busan-AIS-ship-behavior-analysis . The time-lapse uses Esri World Imagery.
 
 The thesis specifies 1983–2021 and describes 38 years of data. The site reports this source wording rather than recalculating a sample count from endpoint years. Statistical associations and LBM response comparisons are reported findings, not independently reproduced forecasts or causal proof.
+
+
+## 2025 AIS workshop
+
+- `ais-workshop-2025.pptx`: unchanged owner-supplied 15-slide presentation for the January 14, 2025 maritime-traffic technical exchange workshop.
+- `ais-workshop-navigation.webp`: whole embedded image `ppt/media/image42.png`, from slide 10.
+- `ais-workshop-activities.webp`: whole embedded image `ppt/media/image45.png`, from slide 11.
+
+Screens are optimized to WebP without cropping; legends and Esri/other basemap attribution remain intact. The website distinguishes the deck's display/update settings, rule-based activity candidates and proposed improvements from currently deployed operation and measured accuracy.

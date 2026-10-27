@@ -33,3 +33,5 @@ GPUTERM and Korea Toilet Map use the owner’s original iPhone App Store submiss
 No analytics, cookies, account system or server-side data collection is included.
 
 The Experience section groups education, employment, police service, reserve affiliations and honors. Its Gantt chart uses month precision only where supplied; education/reserve year ranges do not imply continuous attendance or active service. Project disclosures include input/method/output descriptions and source images where available. Thesis summaries follow the supplied 2021 final PDF and presentation, with coauthorship and reproduction limits retained.
+
+Honors and reserve-service cards sit directly inside Career milestones. The AIS research section also summarizes the owner-supplied January 14, 2025 workshop deck, with two original embedded map examples and a link to the unchanged presentation.
