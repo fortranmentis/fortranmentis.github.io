@@ -27,3 +27,7 @@ The thesis specifies 1983–2021 and describes 38 years of data. The site report
 - `ais-workshop-activities.webp`: whole embedded image `ppt/media/image45.png`, from slide 11.
 
 Screens are optimized to WebP without cropping; legends and Esri/other basemap attribution remain intact. The website distinguishes the deck's display/update settings, rule-based activity candidates and proposed improvements from currently deployed operation and measured accuracy.
+
+## University research-club presentation
+
+The Sahel SST/OLR section uses four unmodified embedded PNG figures from the owner-supplied 15-slide presentation. `sahel-sst-precipitation.png` comes from slide 8; `sahel-sst-olr.png` from slide 10; the two `sahel-*-series.png` images from slide 13. These figures accompany a source-based summary, not a newly executed analysis. The original deck remains private because its cover contains student identifiers.

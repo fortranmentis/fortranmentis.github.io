@@ -89,3 +89,11 @@ html[lang=ko] .node{font-size:20px}
 .internship-detail>.case-facts{margin:0}.internship-detail>.case-facts>div{grid-template-columns:1fr;gap:7px}.academic-studies .career-case .case-context{margin-bottom:14px}.academic-studies .career-case>.contribution{margin:0 0 20px}
 
 #pipeline>.case-context{text-align:center}
+
+/* Private engineering summaries and research-club source figures. */
+.private-jump{text-align:center;margin:32px 0}.private-projects{padding:80px 12px 0;scroll-margin-top:90px}.private-projects>h3{font-size:clamp(32px,4vw,48px);line-height:1.15;max-width:900px}.private-intro{font-size:18px;line-height:1.65;color:var(--muted);max-width:950px;margin:25px 0 35px}.private-case-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.private-case{padding:32px;background:var(--soft);border-radius:26px;scroll-margin-top:90px}.private-case h4{font-size:28px;line-height:1.2}.private-case .stack{margin-top:18px;line-height:1.6}.private-case details{margin:25px 0}.private-case summary{cursor:pointer;font-size:16px;font-weight:600;line-height:1.5}.private-case .case-facts>div{grid-template-columns:1fr;gap:7px}.private-case .case-facts dd{font-size:15px}.private-case .eyebrow{font-size:12px}.private-case .text-link{font-size:15px}.sahel-study{padding-top:85px;text-align:left;scroll-margin-top:90px}.sahel-study>h3{font-size:clamp(32px,4vw,48px);line-height:1.15}.sahel-figures{display:grid;grid-template-columns:1fr 1fr;gap:25px}.sahel-figures .project-example a{background:#000;padding:16px}.sahel-figures img{width:100%;max-height:440px;object-fit:contain;padding:0}.sahel-figures figcaption{font-size:14px}.sahel-study .research-note{margin-top:30px}.sahel-study .case-facts{margin-block:30px}
+@media(max-width:760px){.private-case-grid{grid-template-columns:1fr}.sahel-figures{gap:18px}}
+@media(max-width:540px){.private-projects{padding:60px 0 0}.private-projects>h3,.sahel-study>h3{font-size:31px}.private-case{padding:25px}.private-case h4{font-size:25px}.private-intro{font-size:17px}.sahel-study{padding-top:60px}.sahel-figures{grid-template-columns:1fr}.sahel-figures .project-example a{padding:10px}.sahel-figures img{max-height:400px}.private-case summary{font-size:15px}}
+
+.private-projects{width:min(1200px,calc(100% - 100px));margin-inline:auto;padding-inline:0}
+@media(max-width:540px){.private-projects{width:calc(100% - 40px)}}
