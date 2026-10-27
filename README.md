@@ -31,3 +31,5 @@ Project summaries were reviewed against the owner’s repository documentation o
 GPUTERM and Korea Toilet Map use the owner’s original iPhone App Store submission screenshots, optimized as uncropped WebP images under `assets/app-store/`. Marine Travel AI Agent uses its public repository screenshot. Private mobile work is described at the feature and architecture level; no private source code, datasets or credentials are published. Store links do not imply that the newest repository features are already available in a released binary.
 
 No analytics, cookies, account system or server-side data collection is included.
+
+The Experience section groups education, employment, police service, reserve affiliations and honors. Its Gantt chart uses month precision only where supplied; education/reserve year ranges do not imply continuous attendance or active service. Project disclosures include input/method/output descriptions and source images where available. Thesis summaries follow the supplied 2021 final PDF and presentation, with coauthorship and reproduction limits retained.
