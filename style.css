@@ -97,3 +97,8 @@ html[lang=ko] .node{font-size:20px}
 
 .private-projects{width:min(1200px,calc(100% - 100px));margin-inline:auto;padding-inline:0}
 @media(max-width:540px){.private-projects{width:calc(100% - 40px)}}
+.tech-badges{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.tech-badges img{height:32px;width:auto;max-width:100%;object-fit:contain}
+.seminar-update{padding-top:48px;padding-bottom:56px;border-top:1px solid var(--line,#ddd)}
+.seminar-update h3{font-size:clamp(25px,3vw,38px);line-height:1.3;margin:12px 0}
+.seminar-update p{max-width:760px;line-height:1.8}
