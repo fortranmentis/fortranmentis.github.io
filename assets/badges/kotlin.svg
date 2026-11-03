@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="36" viewBox="0 0 108 36" role="img" aria-label="Kotlin"><title>Kotlin</title><rect x=".5" y=".5" width="107" height="35" rx="9" fill="#10263B" stroke="#2D4D63" /><rect x="6" y="5" width="26" height="26" rx="6" fill="#EFF6FB" /><svg viewBox="0 0 128 128" x="9" y="8" width="20" height="20">
+  <defs>
+    <linearGradient id="a" x1="500.003" x2="-.097" y1="579.106" y2="1079.206" gradientTransform="translate(15.534 -96.774) scale(.1939)" gradientUnits="userSpaceOnUse">
+      <stop offset=".003" stop-color="#e44857" />
+      <stop offset=".469" stop-color="#c711e1" />
+      <stop offset="1" stop-color="#7f52ff" />
+    </linearGradient>
+  </defs>
+  <path fill="url(#a)" d="M112.484 112.484H15.516V15.516h96.968L64 64Zm0 0" />
+</svg><text x="42" y="23" fill="#E5F2FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" letter-spacing=".55">KOTLIN</text></svg>
