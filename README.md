@@ -45,3 +45,7 @@ Private mobile engineering summaries were refreshed from the remote READMEs of G
 English/Korean pages now cover Marine Travel AI Agent v0.9 (LangGraph, checkpoint recovery, n8n, filtered execution traces), current GPUTERM remote web services and native security/sync workflows, Pocket Weather Station private-project scope, and the JBNU career seminar. Technology badges match the GitHub profile. The new Marine Travel example comes from `marine-travel-AI-agent/docs/langgraph-v09-pending.png`; its synthetic weather/venue/route conditions are labelled in both languages. Private source, credentials and datasets are not published.
 
 Selected-work and private-project cards now share the same local SVG technology badges in both languages (2026-11-03). Existing text summaries and implementation limits remain available alongside the images.
+
+## 2026-11-12 update
+
+Added V-PASS Spatial Analytics after AIS in both selected-work grids, including matching technology badges and expandable problem/input/contribution/method/output summaries. Observation counts, unique vessels and KDE intensity remain distinct; source data and QGIS are required for full reproduction. Updated Badagyeol to GeoSR internal technology development, linked the Pocket Weather Station product website, and synchronized the seminar count to 40. Public descriptions follow the new V-PASS repository and owner-supplied role information; no private source or datasets were published.
