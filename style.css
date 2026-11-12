@@ -133,3 +133,6 @@ html[lang=ko] .node{font-size:20px}
 /* Metric as plain accent line so it doesn't repeat the output box; email in contact. */
 .project .project-metric{background:none;border-radius:0;padding:0 0 0 12px;border-left:3px solid var(--blue);margin:14px 0 6px}
 .summary-links a[href^="mailto:"]{word-break:break-all}
+
+/* Let each expanded career case follow its own content height. */
+.career-case-grid{align-items:start}
