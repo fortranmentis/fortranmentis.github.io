@@ -49,3 +49,5 @@ Selected-work and private-project cards now share the same local SVG technology 
 ## 2026-11-12 update
 
 Added V-PASS Spatial Analytics after AIS in both selected-work grids, including matching technology badges and expandable problem/input/contribution/method/output summaries. Observation counts, unique vessels and KDE intensity remain distinct; source data and QGIS are required for full reproduction. Updated Badagyeol to GeoSR internal technology development, linked the Pocket Weather Station product website, and synchronized the seminar count to 40. Public descriptions follow the new V-PASS repository and owner-supplied role information; no private source or datasets were published.
+
+Pocket Weather Station now has a dedicated application showcase in both languages, with three original product-site screenshots, feature copy, product-site navigation and links to the private engineering summary. Release status follows the public product website (preparing for App Store release).
