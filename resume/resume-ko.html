@@ -26,9 +26,9 @@
 </section>
 
 <section><h2>대표 프로젝트</h2>
-<div class="proj"><h3>Marine Travel AI Agent · GeoSR 사내 기술개발 <span>2026</span></h3><p>LLM 에이전트가 쓰는 공공데이터 관리 — TourAPI 관광자료·해양예보 8종 수집 자동화(n8n), ID 중복·좌표 범위·페이지 누락·피드별 최신성 검사, 수집·발표 시각 관리, 타입 검증 도구로 LLM 연계(LangGraph, FastAPI)</p></div>
+<div class="proj"><h3>Ocean Forecast GeoPipeline <span>2025.06 – 2026.04</span></h3><p>NetCDF·CSV 규격 검증 → 공간 변환 → PostgreSQL 적재 → GeoServer 발행 자동화</p></div>
 <div class="proj"><h3>AIS Trajectory Analytics <span>2024 – 2025</span></h3><p>AIS 궤적과 항로·정박지 폴리곤 결합 활동 후보 탐지 · 한국해양환경에너지학회 추계학술대회 포스터(2024)·워크숍 발표(2025)</p></div>
-<div class="proj"><h3>Ocean Forecast GeoPipeline <span>2025.06 – 2026.04</span></h3><p>NetCDF·CSV 규격 검증 → 공간 변환 → PostgreSQL 적재 → GeoServer 발행 자동화 · 코드와 검증 문서 GitHub 공개</p></div>
+<div class="proj"><h3>Marine Travel AI Agent · GeoSR 사내 기술개발 <span>2026</span></h3><p>LLM 에이전트가 쓰는 공공데이터 관리 — TourAPI 관광자료·해양예보 8종 수집 자동화(n8n), ID 중복·좌표 범위·페이지 누락·피드별 최신성 검사, 수집·발표 시각 관리, 타입 검증 도구로 LLM 연계(LangGraph, FastAPI)</p></div>
 </section>
 
 <div class="two">
@@ -57,8 +57,8 @@
 <dt>설계</dt><dd>산출물 <b>메타데이터</b>(자료종류·연월·감시/예측·등록 일시·공개 여부)와 <b>검증 결과</b>, <b>관측·예측 값</b>을 별도 테이블로 분리. 관리 테이블은 (자료종류, 연도, 월, 구분) 조합으로 조회·갱신하고, 검증 결과·값은 파일명으로 연결해 원본–검증–적재를 추적</dd>
 <dt>검증</dt><dd>입력 규격표 대비 Class·Variable·Level(depth)·Unit 항목을 자동 비교해 파일별 통과 여부와 오류 항목을 기록</dd>
 <dt>처리</dt><dd>Python·Shell·Docker 파일 감시, 래스터 재격자화·재투영, U/V 성분에서 유속·방향 산출, Upsert·트랜잭션·재처리, 스케줄링</dd>
-<dt>설계 이유</dt><dd>검증 결과를 별도 테이블로 분리해 파일별 불합격 원인을 바로 조회할 수 있게 하고, 증분 처리로 변경되지 않은 파일의 중복 검증·적재를 방지</dd>
-<dt>결과</dt><dd>항목별 판정 보고서, GeoTIFF·해류 벡터 CSV, 지정 GeoServer 레이어. 코드·검증 문서 GitHub 공개</dd>
+<dt>설계 이유</dt><dd>검증 결과를 별도 테이블로 분리해 파일별 불합격 원인을 조회할 수 있도록 하고, 파일 서명 비교로 변경되지 않은 파일의 반복 규격 검증을 줄임</dd>
+<dt>결과</dt><dd>항목별 판정 보고서, GeoTIFF·해류 벡터 CSV, 지정 GeoServer 레이어</dd>
 </dl>
 <figure class="erd"><svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg" font-size="11.5" font-family="inherit"><rect x="2" y="4" width="200" height="118" rx="7" fill="#f1f5fd" stroke="#1f4fd1"/><text x="12" y="24" font-weight="700" fill="#1f4fd1">파일 카탈로그</text><text x="12" y="44">sn (일련번호)</text><text x="12" y="60">data_knt · year · month</text><text x="12" y="76">section (감시/예측)</text><text x="12" y="92">file_nm1–4 · frst_regist_dt</text><text x="12" y="108">공개 여부</text><rect x="232" y="4" width="170" height="118" rx="7" fill="#fff" stroke="#1f4fd1"/><text x="242" y="24" font-weight="700" fill="#1f4fd1">검증 결과</text><text x="242" y="44">file_nm</text><text x="242" y="60">file_insp_rslt (Y/N)</text><text x="242" y="76">file_err (오류 항목)</text><rect x="432" y="4" width="166" height="118" rx="7" fill="#fff" stroke="#1f4fd1"/><text x="442" y="24" font-weight="700" fill="#1f4fd1">값 테이블 (해류 등)</text><text x="442" y="44">lat · lon · dp</text><text x="442" y="60">ve (유속) · drc (방향)</text><text x="442" y="76">file_nm · div</text><g stroke="#5b6573" stroke-dasharray="4 3"><path d="M202 60 H232"/><path d="M402 60 H432"/></g><text x="102" y="142" font-size="10" fill="#5b6573" text-anchor="middle">(자료종류·연·월·구분)으로 조회·갱신</text><text x="417" y="142" font-size="10" fill="#5b6573" text-anchor="middle">file_nm 으로 연결</text></svg><figcaption>적재 구조 (실제 테이블 기준 요약)</figcaption></figure>
 <p class="next"><b>변경 감지·증분 처리</b> 파일별 크기·수정시각·SHA-256을 처리 로그(filename·size·mtime·sha256·processed_at)로 관리하고, 변경된 파일만 규격 검증을 다시 수행하도록 구현했습니다.</p>
@@ -72,7 +72,7 @@
 <dt>정제</dt><dd>TB 단위 원자료에서 이상치·중복 제거, 선박별 시간 단위 정렬·동기화, 속도·선수방향·변위 파생 변수 생성</dd>
 <dt>설계</dt><dd>항로·정박지 폴리곤 공간 소속과 이동 특성을 결합한 <b>읽을 수 있는 규칙</b>으로 활동 후보를 판정해, 판정 근거를 사람이 검토할 수 있게 구성</dd>
 <dt>처리</dt><dd>GeoPandas 공간 결합, multiprocessing 병렬 처리로 지도 타임랩스 대량 생성</dd>
-<dt>결과</dt><dd>2024 한국해양환경에너지학회 추계학술대회 포스터, 2025.01 워크숍 발표, 코드 GitHub 공개</dd>
+<dt>결과</dt><dd>2024 한국해양환경에너지학회 추계학술대회 포스터, 2025.01 워크숍 발표</dd>
 </dl>
 </article>
 </main>
