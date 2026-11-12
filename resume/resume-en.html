@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Sang Hak Lee — Resume</title>
+<link rel="stylesheet" href="resume.css"></head>
+<body><main class="page">
+<header>
+  <div><h1>Sang Hak Lee</h1>
+  <p class="role">Marine Data Engineer · Vessel &amp; weather data collection, datasets and quality</p></div>
+  <ul class="contact"><li>vin9604@gmail.com</li><li>fortranmentis.github.io</li><li>github.com/fortranmentis</li><li>linkedin.com/in/sang-hak-lee-ba11a5447</li></ul>
+</header>
+
+<section class="summary"><p>Data engineer who <b>collects and cleans</b> AIS / V-PASS vessel data and marine–weather forecast data (NetCDF), and <b>builds datasets</b> on PostgreSQL data models I design. Embeds spec-based <b>data quality validation</b> and processing <b>metadata management</b> into pipelines; licensed weather forecaster with meteorology and ocean-environment certifications, bringing domain understanding of vessel, weather and route data.</p></section>
+
+<section><h2>EXPERIENCE</h2>
+<div class="job"><div class="job-head"><h3>GeoSR (Geo System Research) · Data Engineer</h3><span>Feb 2023 – Present</span></div>
+<ul>
+<li><b>Vessel data collection &amp; cleansing</b> — Cleaned TB-scale AIS trajectories for the Busan area (outliers, duplicates, time alignment) and joined route/anchorage data to build anchoring, loitering and route-deviation candidate datasets (GeoPandas, multiprocessing).</li>
+<li><b>V-PASS dataset construction</b> — Streaming merge and filtering of 2023–2025 vessel observations into regional/grid statistical datasets and density maps, joined with catch-grade data.</li>
+<li><b>Weather &amp; ocean data pipeline</b> — Automated NetCDF/CSV ingestion → spec validation → raster and current-vector conversion → PostgreSQL loading → GeoServer publishing (Python, Shell, Docker, air-gapped).</li>
+<li><b>Data modeling</b> — Designed PostgreSQL tables and schemas; implemented upserts, transactions and reprocessing.</li>
+<li><b>Data quality validation</b> — Item-level spec reports (variables, dimensions, units), exclusion and count reconciliation, service-point to model-grid matching checks, old vs. new product comparisons.</li>
+<li><b>Metadata management</b> — Maintained processing/error history, input spec sheets and data specifications to keep lineage traceable.</li>
+<li><b>Systems &amp; documentation</b> — Built forecast production servers (Oracle DB, Tomcat), scheduling, monitoring, incident response; requirements and test documents; conference poster (2024), workshop talk (2025).</li>
+</ul></div>
+<div class="job"><div class="job-head"><h3>Korea Meteorological Industry Promotion Agency · R&amp;D Planning Intern</h3><span>Jun – Sep 2022</span></div>
+<ul><li>Researched weather technology and policy trends; wrote monthly newsletters and quarterly reports.</li></ul></div>
+</section>
+
+<section><h2>SELECTED PROJECTS</h2>
+<div class="proj"><h3>Ocean Forecast GeoPipeline <span>2025.06 – 2026.04</span></h3><p>Automated spec checks, spatial conversion, DB loading and layer publishing for NetCDF forecast products, with processing history.</p></div>
+<div class="proj"><h3>AIS Trajectory Analytics <span>2024 – 2025</span></h3><p>Activity-candidate detection combining AIS tracks with route and anchorage polygons; poster at the KOSMEE autumn conference.</p></div>
+<div class="proj"><h3>V-PASS Spatial Analytics <span>2023 – 2025</span></h3><p>Turned vessel observations into regional/grid statistics and density maps, with public validation records.</p></div>
+</section>
+
+<div class="two">
+<section><h2>SKILLS</h2>
+<dl class="skills"><dt>Data</dt><dd>Python, SQL, PostgreSQL, Oracle, Pandas, GeoPandas</dd>
+<dt>Formats</dt><dd>NetCDF, AIS, V-PASS, GeoTIFF, GeoServer, QGIS</dd>
+<dt>Infra</dt><dd>Linux, Shell, Docker, scheduling &amp; monitoring</dd>
+<dt>Other</dt><dd>Fortran, Rust, LLM-based AI agent development</dd></dl>
+</section>
+<section><h2>CREDENTIALS · EDUCATION</h2>
+<ul class="plain"><li>Weather Forecaster License · Engineer Meteorology · Engineer Ocean Environment</li>
+<li>B.S. Earth &amp; Environmental Sciences, Jeonbuk National University (2016 – 2022)</li>
+<li>Research Club Grand Prize, JBNU College of Natural Sciences (2021)</li></ul>
+</section>
+</div>
+</main></body></html>

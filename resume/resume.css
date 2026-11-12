@@ -1,0 +1,20 @@
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Helvetica Neue",Arial,sans-serif;color:#1d232b;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;padding:14mm 15mm 12mm;font-size:9.4pt;line-height:1.48;overflow:hidden}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:10mm;padding-bottom:4mm;border-bottom:2px solid #1f4fd1}
+h1{font-size:21pt;letter-spacing:-.02em;font-weight:700}h1 span{font-size:11pt;font-weight:500;color:#5b6573;margin-left:6px}
+.role{margin-top:2px;font-size:10.5pt;font-weight:600;color:#1f4fd1}
+.contact{list-style:none;text-align:right;font-size:8.4pt;color:#3c4652;line-height:1.55}
+.summary{margin:4mm 0 1mm;padding:3mm 4mm;background:#f1f5fd;border-radius:3mm}
+section{margin-top:4mm}
+h2{font-size:10.5pt;font-weight:700;color:#1f4fd1;letter-spacing:.04em;padding-bottom:1.2mm;margin-bottom:2mm;border-bottom:1px solid #d7deea}
+h3{font-size:10pt;font-weight:700}
+.job{margin-bottom:2.5mm}.job-head{display:flex;justify-content:space-between;align-items:baseline}.job-head span,.proj h3 span{font-size:8.6pt;color:#5b6573;font-weight:500}
+ul{padding-left:4.2mm;margin-top:1mm}li{margin-bottom:.9mm}li b{font-weight:650}
+.proj{margin-bottom:1.8mm}.proj h3{display:flex;justify-content:space-between}.proj p{color:#3c4652}
+.two{display:grid;grid-template-columns:1.25fr 1fr;gap:7mm}
+.skills{display:grid;grid-template-columns:17mm 1fr;row-gap:1mm}.skills dt{font-weight:650;color:#3c4652}
+ul.plain{list-style:none;padding-left:0}
+html[lang=en] .page{font-size:9.1pt}
+.contact{white-space:nowrap;flex:none}

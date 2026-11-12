@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>이상학 이력서</title>
+<link rel="stylesheet" href="resume.css"></head>
+<body><main class="page">
+<header>
+  <div><h1>이상학 <span>Sang Hak Lee</span></h1>
+  <p class="role">해양 데이터 엔지니어 · 운항·기상 데이터 수집·정제, 데이터셋 구축과 품질 검증</p></div>
+  <ul class="contact"><li>vin9604@gmail.com</li><li>fortranmentis.github.io</li><li>github.com/fortranmentis</li><li>linkedin.com/in/sang-hak-lee-ba11a5447</li></ul>
+</header>
+
+<section class="summary"><p>AIS·V-PASS 운항 데이터와 해양·기상 예보 데이터(NetCDF)를 <b>수집·정제</b>하고, PostgreSQL 데이터 모델을 직접 설계해 <b>데이터셋을 구축</b>해 왔습니다. 규격 기반 <b>품질 검증</b>과 처리 <b>메타데이터 관리</b>를 파이프라인에 내장하며, 기상기사·해양환경기사·기상예보사 면허로 운항·기상·항로 데이터의 도메인 의미를 이해합니다.</p></section>
+
+<section><h2>경력</h2>
+<div class="job"><div class="job-head"><h3>GeoSR(지오시스템리서치) · Data Engineer</h3><span>2023.02 – 현재</span></div>
+<ul>
+<li><b>운항 데이터 수집·정제</b> — 부산 해역 AIS 궤적을 TB 단위로 정제(이상치·중복 제거, 시간 동기화)하고 속도·선수방향·항로·정박지 정보와 결합해 정박·정류·항로 이탈 후보 데이터셋 구축(GeoPandas, multiprocessing)</li>
+<li><b>V-PASS 데이터셋 구축</b> — 2023–2025년 선박 관측자료의 스트리밍 병합·필터링, 권역·격자 단위 통계 데이터셋과 밀도 지도 생성, 어획 등급 데이터와 결합</li>
+<li><b>기상·해양 데이터 파이프라인</b> — 해양·해빙 예보 NetCDF·CSV 수집 → 규격 검증 → 래스터·해류 벡터 변환 → PostgreSQL 적재 → GeoServer 레이어 발행 자동화(Python·Shell·Docker, 폐쇄망)</li>
+<li><b>데이터 모델링</b> — 적재용 PostgreSQL 테이블·스키마 직접 설계, Upsert·트랜잭션·재처리 구조 구현</li>
+<li><b>데이터 품질 검증</b> — 입력 규격(변수·차원·단위) 항목별 검증 보고서, 제외 자료·집계량 대사, 서비스 지점–모델 격자 매칭 검증, 신·구 산출물 비교 통계</li>
+<li><b>메타데이터 관리</b> — 처리·오류 이력, 입력 규격표와 데이터 명세서를 관리해 데이터 계보(lineage) 추적 가능하게 구성</li>
+<li><b>시스템 구축·운영·문서화</b> — 예보 생산 서버 구축(Oracle DB, Tomcat), 스케줄링·모니터링·장애 대응, 요구사항 정의·시험 문서, 학회 포스터(2024)·워크숍 발표(2025)</li>
+</ul></div>
+<div class="job"><div class="job-head"><h3>한국기상산업기술원 R&amp;D기획실 · 인턴</h3><span>2022.06 – 2022.09</span></div>
+<ul><li>기상 기술·정책 동향 조사, 월간 소식지·분기 보고서 작성</li></ul></div>
+</section>
+
+<section><h2>대표 프로젝트</h2>
+<div class="proj"><h3>Ocean Forecast GeoPipeline <span>2025.06 – 2026.04</span></h3><p>NetCDF 예보 산출물의 규격 검증·공간 변환·DB 적재·레이어 발행을 처리 이력과 함께 자동화</p></div>
+<div class="proj"><h3>AIS Trajectory Analytics <span>2024 – 2025</span></h3><p>AIS 궤적 + 항로·정박지 폴리곤 결합 활동 후보 탐지 · 한국해양환경에너지학회 추계학술대회 포스터</p></div>
+<div class="proj"><h3>V-PASS Spatial Analytics <span>2023 – 2025</span></h3><p>선박 관측자료를 권역·격자 통계와 밀도 지도로 변환, 검증 기록 공개</p></div>
+</section>
+
+<div class="two">
+<section><h2>기술</h2>
+<dl class="skills"><dt>데이터</dt><dd>Python, SQL, PostgreSQL, Oracle, Pandas, GeoPandas</dd>
+<dt>포맷·공간</dt><dd>NetCDF, AIS, V-PASS, GeoTIFF, GeoServer, QGIS</dd>
+<dt>인프라</dt><dd>Linux, Shell, Docker, 스케줄링·모니터링</dd>
+<dt>기타</dt><dd>Fortran, Rust, LLM 기반 AI 에이전트 개발</dd></dl>
+</section>
+<section><h2>자격 · 학력</h2>
+<ul class="plain"><li>기상예보사 면허 · 기상기사 · 해양환경기사</li>
+<li>전북대학교 지구환경과학과 이학사 (2016 – 2022)</li>
+<li>연구동아리 대상, 전북대 자연과학대학 (2021)</li></ul>
+</section>
+</div>
+</main></body></html>
