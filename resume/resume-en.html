@@ -55,7 +55,7 @@
 <div>
 <dl class="facts">
 <dt>Role</dt><dd>Data model design, spec validation, spatial conversion and ETL; specifications and test documents</dd>
-<dt>Design</dt><dd>Separated product <b>metadata</b> (data type, year-month, monitoring/forecast, registration time, publication flag), <b>validation results</b> and <b>values</b> into distinct tables, tracing source → validation → load per file</dd>
+<dt>Design</dt><dd>Separated product <b>metadata</b> (data type, year-month, monitoring/forecast, registration time, publication flag), <b>validation results</b> and <b>values</b> into distinct tables; the catalog is queried and updated by (data type, year, month, section), while results and values link by file name to trace source → validation → load</dd>
 <dt>Validation</dt><dd>Automatically compared Class, Variable, Level (depth) and Unit against the input spec; recorded pass/fail and error items per file</dd>
 <dt>Processing</dt><dd>File watching (Python, Shell, Docker), raster regridding/reprojection, speed and direction from U/V, upserts, transactions, reprocessing, scheduling</dd>
 <dt>Results</dt><dd>Item-level reports, GeoTIFF and current-vector CSV, GeoServer layers; code and validation docs public on GitHub</dd>
@@ -69,7 +69,7 @@
 <text x="150" y="124" font-size="8" fill="#5b6573" text-anchor="middle">linked by file_nm</text>
 </svg><figcaption>Loading structure (summary of actual tables)</figcaption></figure>
 </div>
-<p class="next"><b>If I redesigned it</b> I would add a unique key on (data type, year-month, section), link all three tables with a file_id foreign key, and store speed/direction as numeric with a unit column for query performance and integrity.</p>
+<p class="next"><b>Change detection &amp; incremental runs</b> Kept a processing log of size, mtime and SHA-256 per file (filename, size, mtime, sha256, processed_at) and re-ran spec validation only for changed files.</p>
 </article>
 
 <article class="case">
@@ -80,7 +80,7 @@
 <dt>Cleansing</dt><dd>Removed outliers and duplicates from TB-scale raw data, aligned tracks per vessel in time, derived speed, heading and displacement</dd>
 <dt>Design</dt><dd>Judged candidates with <b>readable rules</b> combining polygon membership and movement features so each decision can be reviewed</dd>
 <dt>Processing</dt><dd>GeoPandas spatial joins; multiprocessing for large map time-lapse generation</dd>
-<dt>Results</dt><dd>KOSMEE 2024 autumn conference poster, Jan 2025 workshop talk (10 pp.), public sample repo of 788K records / 1,070 vessels</dd>
+<dt>Results</dt><dd>KOSMEE 2024 autumn conference poster, Jan 2025 workshop talk, code public on GitHub</dd>
 </dl>
 </article>
 </main>
