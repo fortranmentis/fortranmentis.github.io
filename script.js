@@ -6,6 +6,8 @@ if(filters&&count){
   filters.hidden=false;
   function show(category){
     let total=0;
+    const more=document.querySelector('.additional-projects');
+    if(more) more.open=category!=='all';
     cards.forEach(card=>{card.hidden=category!=='all'&&card.dataset.category!==category;if(!card.hidden)total++;});
     filters.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.filter===category)));
     count.textContent=`${total} ${count.dataset.countLabel}`;
