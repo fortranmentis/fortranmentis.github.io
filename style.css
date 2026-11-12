@@ -105,3 +105,17 @@ html[lang=ko] .node{font-size:20px}
 
 /* Supporting career evidence stays expandable beside the main case studies. */
 .career-supplement{margin-top:28px;padding:28px 32px;background:var(--soft);border-radius:26px}.career-supplement summary{font-size:19px;font-weight:600;cursor:pointer;line-height:1.5}.career-supplement h4{font-size:24px;line-height:1.3;margin:26px 0 12px}.career-supplement .case-facts{margin-bottom:0}@media(max-width:540px){.career-supplement{padding:24px}.career-supplement summary{font-size:17px}.career-supplement h4{font-size:21px}}
+.summary-band{margin-top:28px}
+.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--paper)}
+.summary-grid>div{padding:22px 24px;border-left:1px solid var(--line)}
+.summary-grid>div:first-child{border-left:0}
+.summary-grid dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:8px}
+.summary-grid dd{margin:0;font-size:15px;line-height:1.5;color:var(--ink)}
+.summary-links{display:flex;flex-wrap:wrap;gap:6px 16px}
+.summary-links a{color:var(--blue);text-decoration:none;font-weight:600}
+.summary-links a:hover{text-decoration:underline}
+.career-top{padding-top:30px}
+.career-top .career-details{padding-top:40px}
+@media(max-width:1050px){.summary-grid{grid-template-columns:1fr 1fr}.summary-grid>div:nth-child(3){border-left:0}.summary-grid>div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media(max-width:540px){.summary-grid{grid-template-columns:1fr}.summary-grid>div{border-left:0}.summary-grid>div+div{border-top:1px solid var(--line)}.summary-grid dd{font-size:14px}}
+.project-metric{margin:14px 0 4px;padding:8px 12px;background:#eef5ff;border-radius:10px;font-size:13px;color:var(--ink)}.project-metric strong{color:var(--blue)}
