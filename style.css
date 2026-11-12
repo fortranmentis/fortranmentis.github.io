@@ -129,3 +129,7 @@ html[lang=ko] .node{font-size:20px}
 
 /* Named identity and inspectable deliverables for the three featured cases. */
 .hero-identity{display:flex;justify-content:center;align-items:baseline;flex-wrap:wrap;gap:8px 16px;margin:0 auto 24px;line-height:1.5}.hero-identity strong{font-size:24px;font-weight:650;color:var(--ink);letter-spacing:-.025em}.hero-identity span{font-size:17px;font-weight:550;color:var(--muted)}.project .project-output{padding:14px 16px;margin:18px 0;background:#eef5ff;border-radius:12px;line-height:1.6;color:var(--ink)}.project-output strong{display:block;font-size:13px;color:var(--blue);margin-bottom:4px}.project-output span{font-size:15px}
+
+/* Metric as plain accent line so it doesn't repeat the output box; email in contact. */
+.project .project-metric{background:none;border-radius:0;padding:0 0 0 12px;border-left:3px solid var(--blue);margin:14px 0 6px}
+.summary-links a[href^="mailto:"]{word-break:break-all}
