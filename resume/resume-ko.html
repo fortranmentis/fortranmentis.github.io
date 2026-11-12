@@ -19,7 +19,7 @@
 <li><b>데이터 모델링</b> — 4개 기관 11종 감시·예측 산출물의 적재 구조를 <b>파일 카탈로그</b>(자료종류·연월·감시/예측 구분·공개 여부), <b>검증 결과</b>(파일별 통과 여부·오류 항목), <b>값 테이블</b>(해류 위경도·유속·방향·깊이)로 분리 설계하고 파일명으로 연결</li>
 <li><b>데이터 품질 검증</b> — 입력 규격(Class·Variable·Level·Unit) 항목별 자동 검증과 오류 기록, 제외 자료·집계량 대사, 서비스 지점–모델 격자 매칭 검증, 신·구 산출물 비교 통계</li>
 <li><b>메타데이터 관리</b> — 처리·오류 이력과 입력 규격표·데이터 명세서를 관리하고, 원본 파일–검증 결과–적재 값을 파일 단위로 추적, SHA-256 변경 감지로 변경 파일만 재검증하는 증분 처리 구현</li>
-<li><b>시스템 구축·운영·문서화</b> — 예보 생산 서버 구축(Oracle DB, Tomcat), 스케줄링·모니터링·장애 대응, 요구사항 정의·시험 문서, 학회 포스터(2024)·워크숍 발표(2025)</li>
+<li><b>시스템 구축·운영·문서화</b> — 예보 생산 서버 구축(PostgreSQL), 스케줄링·모니터링·장애 대응, 요구사항 정의·시험 문서, 학회 포스터(2024)·워크숍 발표(2025)</li>
 </ul></div>
 <div class="job"><div class="job-head"><h3>한국기상산업기술원 R&amp;D기획실 · 인턴</h3><span>2022.06 – 2022.09</span></div>
 <ul><li>기상 기술·정책 동향 조사, 월간 소식지·분기 보고서 작성</li></ul></div>
@@ -33,7 +33,7 @@
 
 <div class="two">
 <section><h2>기술</h2>
-<dl class="skills"><dt>데이터</dt><dd>Python, SQL, PostgreSQL, Oracle, Pandas, GeoPandas</dd>
+<dl class="skills"><dt>데이터</dt><dd>Python, SQL, PostgreSQL, Pandas, GeoPandas</dd>
 <dt>포맷·공간</dt><dd>NetCDF, AIS, V-PASS, GeoTIFF, GeoServer, QGIS</dd>
 <dt>인프라</dt><dd>Linux, Shell, Docker, 스케줄링·모니터링</dd>
 <dt>기타</dt><dd>LangGraph, FastAPI, Ollama (LLM 에이전트), Fortran, Rust</dd></dl>
@@ -114,7 +114,7 @@
 <article class="case">
 <div class="case-title"><h2>⑤ 예보 시스템 구축·운영과 분석</h2><span>GeoSR · 2023 – 2025</span></div>
 <dl class="facts">
-<dt>구축</dt><dd>예보지수·해황예보도 생산 서버 견적·설치, 원격접속·패킷필터링, Oracle DB·Tomcat·Python/Java 실행환경</dd>
+<dt>구축</dt><dd>예보지수·해황예보도 생산 서버 견적·설치, 원격접속·패킷필터링, PostgreSQL·Python/Java 실행환경</dd>
 <dt>운영</dt><dd>생산 스케줄 구성, 일일 산출 모니터링, 장애 대응과 보고, 백업 NAS 구축(2025)</dd>
 <dt>분석</dt><dd>신·구 모델 산출물 비교, 특이기상일수·누리집·OpenAPI 활용도 분석과 월간 통계·요약집 작성</dd>
 </dl>

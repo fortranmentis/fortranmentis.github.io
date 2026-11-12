@@ -19,7 +19,7 @@
 <li><b>Data modeling</b> — Split loading for 11 monitoring/forecast products from 4 institutions into a <b>file catalog</b> (data type, year-month, monitoring/forecast, publication flag), <b>validation results</b> (per-file pass/fail and error items) and <b>value tables</b> (current lat/lon, speed, direction, depth), linked by file name.</li>
 <li><b>Data quality validation</b> — Automated spec checks (Class, Variable, Level, Unit) with error records, exclusion and count reconciliation, service-point to model-grid matching, old vs. new product comparisons.</li>
 <li><b>Metadata management</b> — Maintained processing/error history, input spec sheets and data specifications; traced source file → validation result → loaded values per file; SHA-256 change detection re-validates only changed files.</li>
-<li><b>Systems &amp; documentation</b> — Built forecast production servers (Oracle DB, Tomcat), scheduling, monitoring, incident response; requirements and test documents; conference poster (2024), workshop talk (2025).</li>
+<li><b>Systems &amp; documentation</b> — Built forecast production servers (PostgreSQL), scheduling, monitoring, incident response; requirements and test documents; conference poster (2024), workshop talk (2025).</li>
 </ul></div>
 <div class="job"><div class="job-head"><h3>Korea Meteorological Industry Promotion Agency · R&amp;D Planning Intern</h3><span>Jun – Sep 2022</span></div>
 <ul><li>Researched weather technology and policy trends; wrote monthly newsletters and quarterly reports.</li></ul></div>
@@ -33,7 +33,7 @@
 
 <div class="two">
 <section><h2>SKILLS</h2>
-<dl class="skills"><dt>Data</dt><dd>Python, SQL, PostgreSQL, Oracle, Pandas, GeoPandas</dd>
+<dl class="skills"><dt>Data</dt><dd>Python, SQL, PostgreSQL, Pandas, GeoPandas</dd>
 <dt>Formats</dt><dd>NetCDF, AIS, V-PASS, GeoTIFF, GeoServer, QGIS</dd>
 <dt>Infra</dt><dd>Linux, Shell, Docker, scheduling &amp; monitoring</dd>
 <dt>Other</dt><dd>Fortran, Rust, LangGraph, FastAPI, Ollama (LLM agents)</dd></dl>
@@ -114,7 +114,7 @@
 <article class="case">
 <div class="case-title"><h2>⑤ Forecast system build, operation &amp; analysis</h2><span>GeoSR · 2023 – 2025</span></div>
 <dl class="facts">
-<dt>Build</dt><dd>Forecast-index and sea-condition chart production servers: quotes, install, remote access, packet filtering, Oracle DB, Tomcat, Python/Java; backup NAS (2025)</dd>
+<dt>Build</dt><dd>Forecast-index and sea-condition chart production servers: quotes, install, remote access, packet filtering, PostgreSQL, Python/Java; backup NAS (2025)</dd>
 <dt>Operation</dt><dd>Production scheduling, daily output monitoring, incident response and reporting</dd>
 <dt>Analysis</dt><dd>Old vs. new model product comparisons, severe-weather-day and website/OpenAPI usage analysis, monthly statistics and summaries</dd>
 </dl>
