@@ -57,6 +57,7 @@
 <dt>Design</dt><dd>Separated product <b>metadata</b> (data type, year-month, monitoring/forecast, registration time, publication flag), <b>validation results</b> and <b>values</b> into distinct tables; the catalog is queried and updated by (data type, year, month, section), while results and values link by file name to trace source → validation → load</dd>
 <dt>Validation</dt><dd>Automatically compared Class, Variable, Level (depth) and Unit against the input spec; recorded pass/fail and error items per file</dd>
 <dt>Processing</dt><dd>File watching (Python, Shell, Docker), raster regridding/reprojection, speed and direction from U/V, upserts, transactions, reprocessing, scheduling</dd>
+<dt>Why</dt><dd>A separate validation table makes per-file failure causes directly queryable; incremental runs prevent re-validating and reloading unchanged files</dd>
 <dt>Results</dt><dd>Item-level reports, GeoTIFF and current-vector CSV, GeoServer layers; code and validation docs on GitHub</dd>
 </dl>
 <figure class="erd"><svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg" font-size="11.5" font-family="inherit"><rect x="2" y="4" width="200" height="118" rx="7" fill="#f1f5fd" stroke="#1f4fd1"/><text x="12" y="24" font-weight="700" fill="#1f4fd1">File catalog</text><text x="12" y="44">sn (serial)</text><text x="12" y="60">data_knt · year · month</text><text x="12" y="76">section (monitor/forecast)</text><text x="12" y="92">file_nm1–4 · frst_regist_dt</text><text x="12" y="108">public flag</text><rect x="232" y="4" width="170" height="118" rx="7" fill="#fff" stroke="#1f4fd1"/><text x="242" y="24" font-weight="700" fill="#1f4fd1">Validation result</text><text x="242" y="44">file_nm</text><text x="242" y="60">file_insp_rslt (Y/N)</text><text x="242" y="76">file_err (error items)</text><rect x="432" y="4" width="166" height="118" rx="7" fill="#fff" stroke="#1f4fd1"/><text x="442" y="24" font-weight="700" fill="#1f4fd1">Value table (currents)</text><text x="442" y="44">lat · lon · dp</text><text x="442" y="60">ve (speed) · drc (direction)</text><text x="442" y="76">file_nm · div</text><g stroke="#5b6573" stroke-dasharray="4 3"><path d="M202 60 H232"/><path d="M402 60 H432"/></g><text x="102" y="142" font-size="10" fill="#5b6573" text-anchor="middle">queried by (type, year, month, section)</text><text x="417" y="142" font-size="10" fill="#5b6573" text-anchor="middle">linked by file_nm</text></svg><figcaption>Loading structure (summary of actual tables)</figcaption></figure>
@@ -94,6 +95,7 @@
 <dt>Role</dt><dd>Public-data integration, collection workflows, quality checks and typed validation tools, itinerary rule engine</dd>
 <dt>Quality</dt><dd>Content-ID duplicates, coordinate range, missing/repeated pages, per-feed freshness; atomic refresh keeps prior data on failure</dd>
 <dt>Metadata</dt><dd>Stored collection time, forecast issue time and source with each record so the time basis of an LLM answer can be checked</dd>
+<dt>LLM link</dt><dd>In a LangGraph generate → validate → user choice → recheck flow, the LLM reads data through typed validation tools; SQLite checkpoints restore interrupted plans</dd>
 <dt>Scale &amp; tests</dt><dd>~10K tourism records, 8 marine forecast feeds; 195 Python and 28 Node tests passing; Langfuse execution tracing</dd>
 </dl>
 </article>
@@ -101,8 +103,11 @@
 <article class="case">
 <div class="case-title"><h2>④ V-PASS vessel observation datasets</h2><span>GeoSR · data years 2023 – 2025</span></div>
 <dl class="facts">
-<dt>Processing</dt><dd>Annual streaming merge, speed and vessel-ID filters, monthly/seasonal aggregation, regional grid assignment and count sums, weighted Quartic KDE, catch-grade join</dd>
-<dt>Validation</dt><dd>Exclusion, grid-assignment and count reconciliation reports matching input and output totals; methodology and validation records public</dd>
+<dt>Role</dt><dd>Built the full batch workflow from vessel-observation selection, aggregation and spatial joins to consistency checks</dd>
+<dt>Processing</dt><dd>Annual streaming merge, speed and vessel-ID filters, monthly (36) and complete-season (11) aggregation, regional grid assignment and count sums, weighted Quartic KDE, catch-grade join</dd>
+<dt>Join rules</dt><dd>Exact match of CSV grid numbers to grid-point IDs; duplicate CSV keys summed, duplicate spatial IDs rejected; vessel IDs compared verbatim without decoding</dd>
+<dt>Consistency</dt><dd>Count reconciliation by <b>input = assigned + unmatched + outside</b>; with overlapping regions, regional sums split into unique counts and overlap duplication</dd>
+<dt>Quality</dt><dd>Malformed records quarantined with offsets and reasons; mean denominators exclude missing/NULL but include zero; methodology and validation records public</dd>
 </dl>
 </article>
 

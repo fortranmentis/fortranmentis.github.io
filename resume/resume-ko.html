@@ -57,6 +57,7 @@
 <dt>설계</dt><dd>산출물 <b>메타데이터</b>(자료종류·연월·감시/예측·등록 일시·공개 여부)와 <b>검증 결과</b>, <b>관측·예측 값</b>을 별도 테이블로 분리. 관리 테이블은 (자료종류, 연도, 월, 구분) 조합으로 조회·갱신하고, 검증 결과·값은 파일명으로 연결해 원본–검증–적재를 추적</dd>
 <dt>검증</dt><dd>입력 규격표 대비 Class·Variable·Level(depth)·Unit 항목을 자동 비교해 파일별 통과 여부와 오류 항목을 기록</dd>
 <dt>처리</dt><dd>Python·Shell·Docker 파일 감시, 래스터 재격자화·재투영, U/V 성분에서 유속·방향 산출, Upsert·트랜잭션·재처리, 스케줄링</dd>
+<dt>설계 이유</dt><dd>검증 결과를 별도 테이블로 분리해 파일별 불합격 원인을 바로 조회할 수 있게 하고, 증분 처리로 변경되지 않은 파일의 중복 검증·적재를 방지</dd>
 <dt>결과</dt><dd>항목별 판정 보고서, GeoTIFF·해류 벡터 CSV, 지정 GeoServer 레이어. 코드·검증 문서 GitHub 공개</dd>
 </dl>
 <figure class="erd"><svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg" font-size="11.5" font-family="inherit"><rect x="2" y="4" width="200" height="118" rx="7" fill="#f1f5fd" stroke="#1f4fd1"/><text x="12" y="24" font-weight="700" fill="#1f4fd1">파일 카탈로그</text><text x="12" y="44">sn (일련번호)</text><text x="12" y="60">data_knt · year · month</text><text x="12" y="76">section (감시/예측)</text><text x="12" y="92">file_nm1–4 · frst_regist_dt</text><text x="12" y="108">공개 여부</text><rect x="232" y="4" width="170" height="118" rx="7" fill="#fff" stroke="#1f4fd1"/><text x="242" y="24" font-weight="700" fill="#1f4fd1">검증 결과</text><text x="242" y="44">file_nm</text><text x="242" y="60">file_insp_rslt (Y/N)</text><text x="242" y="76">file_err (오류 항목)</text><rect x="432" y="4" width="166" height="118" rx="7" fill="#fff" stroke="#1f4fd1"/><text x="442" y="24" font-weight="700" fill="#1f4fd1">값 테이블 (해류 등)</text><text x="442" y="44">lat · lon · dp</text><text x="442" y="60">ve (유속) · drc (방향)</text><text x="442" y="76">file_nm · div</text><g stroke="#5b6573" stroke-dasharray="4 3"><path d="M202 60 H232"/><path d="M402 60 H432"/></g><text x="102" y="142" font-size="10" fill="#5b6573" text-anchor="middle">(자료종류·연·월·구분)으로 조회·갱신</text><text x="417" y="142" font-size="10" fill="#5b6573" text-anchor="middle">file_nm 으로 연결</text></svg><figcaption>적재 구조 (실제 테이블 기준 요약)</figcaption></figure>
@@ -94,6 +95,7 @@
 <dt>역할</dt><dd>공공데이터 연계, 수집 워크플로, 품질 검사·타입 검증 도구, 일정 규칙 엔진 개발</dd>
 <dt>품질</dt><dd>콘텐츠 ID 중복·좌표 범위·페이지 누락/반복·피드별 최신성 검사, 갱신 실패 시 기존 자료를 유지하는 원자적 교체</dd>
 <dt>메타데이터</dt><dd>수집 시각·예보 발표 시각·출처를 자료와 함께 저장해 LLM 응답의 근거 시점을 확인 가능하게 구성</dd>
+<dt>LLM 연계</dt><dd>LangGraph의 생성 → 검증 → 사용자 선택 → 재검토 흐름에서 LLM이 타입 검증 도구를 통해 자료를 조회하도록 구성하고, SQLite 체크포인트로 중단된 계획을 복구</dd>
 <dt>규모·검증</dt><dd>관광자료 약 1만 건, 해양예보 8종 피드. Python 테스트 195개·Node 28개 통과, Langfuse로 실행 추적</dd>
 </dl>
 </article>
@@ -101,8 +103,11 @@
 <article class="case">
 <div class="case-title"><h2>④ V-PASS 선박 관측 데이터셋 구축</h2><span>GeoSR · 대상 자료 2023 – 2025</span></div>
 <dl class="facts">
-<dt>처리</dt><dd>연도별 스트리밍 병합, 속력·선박 ID 필터, 월·계절 집계, 권역별 격자 배정과 count 합산, 가중 Quartic KDE 밀도 지도, 어획 등급 결합</dd>
-<dt>검증</dt><dd>제외 자료·격자 배정·집계량 대사 보고서로 입력과 산출 건수를 맞춰 확인, 방법론·검증 기록 공개</dd>
+<dt>역할</dt><dd>선박 관측자료 선별·집계·공간 결합부터 정합성 검증까지 배치 워크플로 전체 개발</dd>
+<dt>처리</dt><dd>연도별 스트리밍 병합, 속력·선박 ID 필터, 월(36개)·완전 계절(11개) 집계, 권역별 격자 배정과 count 합산, 가중 Quartic KDE 밀도 지도, 어획 등급 결합</dd>
+<dt>결합 기준</dt><dd>관측 CSV 격자번호를 격자 포인트 ID에 정확히 매칭, CSV 중복 키는 합산·공간 ID 중복은 오류 처리, 선박 ID는 디코딩 없이 원문 비교</dd>
+<dt>정합성</dt><dd><b>입력 = 배정 + 미매칭 + 대상 밖</b> 항등식으로 건수 대사, 권역 중첩 시 권역 합계를 고유 건수와 중첩 중복분으로 분리</dd>
+<dt>품질 처리</dt><dd>형식 오류 레코드를 위치·사유와 함께 격리, 평균 분모에서 결측·NULL은 제외하고 0은 포함하도록 명시. 방법론·검증 기록 공개</dd>
 </dl>
 </article>
 
