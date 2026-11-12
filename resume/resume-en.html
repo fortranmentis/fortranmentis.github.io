@@ -44,4 +44,84 @@
 <li>Research Club Grand Prize, JBNU College of Natural Sciences (2021)</li></ul>
 </section>
 </div>
-</main></body></html>
+</main>
+<main class="page detail">
+<div class="detail-head"><span>Sang Hak Lee · Experience details</span><span>2 / 3</span></div>
+
+<article class="case">
+<div class="case-title"><h2>① Monitoring &amp; forecast product loading pipeline</h2><span>GeoSR · Jun 2025 – Apr 2026</span></div>
+<p class="lead">Air-gapped pipeline that validates 11 monthly marine/weather monitoring and forecast products (NetCDF, CSV) from 4 institutions (KIOST, NIFS, KHOA, KOPRI), loads them into PostgreSQL and publishes GeoServer layers.</p>
+<div class="case-body">
+<div>
+<dl class="facts">
+<dt>Role</dt><dd>Data model design, spec validation, spatial conversion and ETL; specifications and test documents</dd>
+<dt>Design</dt><dd>Separated product <b>metadata</b> (data type, year-month, monitoring/forecast, registration time, publication flag), <b>validation results</b> and <b>values</b> into distinct tables, tracing source → validation → load per file</dd>
+<dt>Validation</dt><dd>Automatically compared Class, Variable, Level (depth) and Unit against the input spec; recorded pass/fail and error items per file</dd>
+<dt>Processing</dt><dd>File watching (Python, Shell, Docker), raster regridding/reprojection, speed and direction from U/V, upserts, transactions, reprocessing, scheduling</dd>
+<dt>Results</dt><dd>Item-level reports, GeoTIFF and current-vector CSV, GeoServer layers; code and validation docs public on GitHub</dd>
+</dl>
+</div>
+<figure class="erd"><svg viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+<g font-size="9.5"><rect x="6" y="6" width="150" height="104" rx="6" fill="#f1f5fd" stroke="#1f4fd1"/><text x="14" y="22" font-weight="700" fill="#1f4fd1">File catalog</text><text x="14" y="38">sn (serial)</text><text x="14" y="52">data_knt · year · month</text><text x="14" y="66">section (monitor/forecast)</text><text x="14" y="80">file_nm1–4</text><text x="14" y="94">frst_regist_dt · public flag</text>
+<rect x="170" y="6" width="124" height="74" rx="6" fill="#fff" stroke="#1f4fd1"/><text x="178" y="22" font-weight="700" fill="#1f4fd1">Validation result</text><text x="178" y="38">file_nm</text><text x="178" y="52">file_insp_rslt (Y/N)</text><text x="178" y="66">file_err (error items)</text>
+<rect x="76" y="140" width="150" height="84" rx="6" fill="#fff" stroke="#1f4fd1"/><text x="84" y="156" font-weight="700" fill="#1f4fd1">Value table (currents)</text><text x="84" y="172">lat · lon · dp</text><text x="84" y="186">ve (speed) · drc (direction)</text><text x="84" y="200">file_nm · div</text></g>
+<g stroke="#5b6573" stroke-dasharray="3 2" fill="none"><path d="M156 50 H170"/><path d="M232 80 V110 H190 V140"/><path d="M80 110 V125 H140 V140"/></g>
+<text x="150" y="124" font-size="8" fill="#5b6573" text-anchor="middle">linked by file_nm</text>
+</svg><figcaption>Loading structure (summary of actual tables)</figcaption></figure>
+</div>
+<p class="next"><b>If I redesigned it</b> I would add a unique key on (data type, year-month, section), link all three tables with a file_id foreign key, and store speed/direction as numeric with a unit column for query performance and integrity.</p>
+</article>
+
+<article class="case">
+<div class="case-title"><h2>② AIS vessel data cleansing &amp; activity detection</h2><span>GeoSR · 2024 – 2025</span></div>
+<p class="lead">Combined historical Busan-area AIS with vessel metadata and route/anchorage polygons to detect and visualize anchoring, loitering and route-deviation candidates.</p>
+<dl class="facts">
+<dt>Role</dt><dd>Trajectory preprocessing, spatial-rule and time-alignment detection, parallel visualization; poster and workshop talk</dd>
+<dt>Cleansing</dt><dd>Removed outliers and duplicates from TB-scale raw data, aligned tracks per vessel in time, derived speed, heading and displacement</dd>
+<dt>Design</dt><dd>Judged candidates with <b>readable rules</b> combining polygon membership and movement features so each decision can be reviewed</dd>
+<dt>Processing</dt><dd>GeoPandas spatial joins; multiprocessing for large map time-lapse generation</dd>
+<dt>Results</dt><dd>KOSMEE 2024 autumn conference poster, Jan 2025 workshop talk (10 pp.), public sample repo of 788K records / 1,070 vessels</dd>
+</dl>
+</article>
+</main>
+
+<main class="page detail">
+<div class="detail-head"><span>Sang Hak Lee · Experience details</span><span>3 / 3</span></div>
+
+<article class="case">
+<div class="case-title"><h2>③ Marine Travel AI Agent — public data for an LLM</h2><span>GeoSR internal R&amp;D · 2026</span></div>
+<p class="lead">Collects and validates tourism, marine-forecast, weather and transport public data so an LLM agent can cite checkable evidence. Quality management of <b>external data an LLM consumes</b>, not training-dataset construction.</p>
+<figure class="flow"><svg viewBox="0 0 560 70" xmlns="http://www.w3.org/2000/svg" font-size="10">
+<g fill="#f1f5fd" stroke="#1f4fd1"><rect x="2" y="12" width="96" height="46" rx="6"/><rect x="116" y="12" width="104" height="46" rx="6"/><rect x="238" y="12" width="104" height="46" rx="6"/><rect x="360" y="12" width="88" height="46" rx="6"/><rect x="466" y="12" width="92" height="46" rx="6"/></g>
+<g text-anchor="middle"><text x="50" y="32" font-weight="700">Public data</text><text x="50" y="47" font-size="8.5">TourAPI · 8 marine feeds</text>
+<text x="168" y="32" font-weight="700">Collection</text><text x="168" y="47" font-size="8.5">n8n daily / weekly</text>
+<text x="290" y="32" font-weight="700">Quality checks</text><text x="290" y="47" font-size="8.5">dup · coord · gaps · fresh</text>
+<text x="404" y="32" font-weight="700">Typed tools</text><text x="404" y="47" font-size="8.5">8 validators</text>
+<text x="512" y="32" font-weight="700">LLM agent</text><text x="512" y="47" font-size="8.5">LangGraph</text></g>
+<g stroke="#5b6573"><path d="M98 35h14"/><path d="M220 35h14"/><path d="M342 35h14"/><path d="M448 35h14"/></g></svg></figure>
+<dl class="facts">
+<dt>Role</dt><dd>Public-data integration, collection workflows, quality checks and typed validation tools, itinerary rule engine</dd>
+<dt>Quality</dt><dd>Content-ID duplicates (0 found), coordinate range, missing/repeated pages, per-feed freshness; atomic refresh keeps prior data on failure</dd>
+<dt>Metadata</dt><dd>Stored collection time, forecast issue time and source with each record so the time basis of an LLM answer can be checked</dd>
+<dt>Scale &amp; tests</dt><dd>~10K tourism records, 8 marine forecast feeds; 195 Python and 28 Node tests passing; Langfuse execution tracing</dd>
+</dl>
+</article>
+
+<article class="case">
+<div class="case-title"><h2>④ V-PASS vessel observation datasets</h2><span>GeoSR · data years 2023 – 2025</span></div>
+<dl class="facts">
+<dt>Processing</dt><dd>Annual streaming merge, speed and vessel-ID filters, monthly/seasonal aggregation, regional grid assignment and count sums, weighted Quartic KDE, catch-grade join</dd>
+<dt>Validation</dt><dd>Exclusion, grid-assignment and count reconciliation reports matching input and output totals; methodology and validation records public</dd>
+</dl>
+</article>
+
+<article class="case">
+<div class="case-title"><h2>⑤ Forecast system build, operation &amp; analysis</h2><span>GeoSR · 2023 – 2025</span></div>
+<dl class="facts">
+<dt>Build</dt><dd>Forecast-index and sea-condition chart production servers: quotes, install, remote access, packet filtering, Oracle DB, Tomcat, Python/Java; backup NAS (2025)</dd>
+<dt>Operation</dt><dd>Production scheduling, daily output monitoring, incident response and reporting</dd>
+<dt>Analysis</dt><dd>Old vs. new model product comparisons, severe-weather-day and website/OpenAPI usage analysis, monthly statistics and summaries</dd>
+</dl>
+</article>
+</main>
+</body></html>

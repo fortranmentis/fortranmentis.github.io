@@ -18,3 +18,16 @@ ul{padding-left:4.2mm;margin-top:1mm}li{margin-bottom:.9mm}li b{font-weight:650}
 ul.plain{list-style:none;padding-left:0}
 html[lang=en] .page{font-size:9.1pt}
 .contact{white-space:nowrap;flex:none}
+
+/* Detail pages 2–3 (page 1 unchanged) */
+.page{break-after:page}.page:last-of-type{break-after:auto}
+.detail-head{display:flex;justify-content:space-between;font-size:8.4pt;color:#5b6573;padding-bottom:2.5mm;border-bottom:2px solid #1f4fd1;margin-bottom:4mm}
+.case{margin-bottom:5mm}.case-title{display:flex;justify-content:space-between;align-items:baseline;gap:4mm;border-bottom:1px solid #d7deea;padding-bottom:1.2mm;margin-bottom:2mm}
+.case-title h2{border:0;padding:0;margin:0;font-size:11.5pt;color:#1d232b;letter-spacing:0}.case-title span{font-size:8.6pt;color:#5b6573;white-space:nowrap}
+.lead{margin-bottom:2.5mm;color:#3c4652}
+.facts{display:grid;grid-template-columns:18mm 1fr;row-gap:1.6mm;column-gap:2mm}.facts dt{font-weight:700;color:#1f4fd1}
+html[lang=en] .facts{grid-template-columns:20mm 1fr}
+.case-body{display:grid;grid-template-columns:1fr 64mm;gap:5mm;align-items:start}
+.erd svg,.flow svg{width:100%;height:auto;display:block}.erd figcaption{font-size:7.8pt;color:#5b6573;text-align:center;margin-top:1mm}
+.flow{margin:1mm 0 3mm}
+.next{margin-top:2.5mm;padding:2.5mm 3.5mm;background:#f1f5fd;border-radius:2.5mm}.next b{color:#1f4fd1;margin-right:2mm}

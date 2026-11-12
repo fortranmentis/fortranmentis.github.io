@@ -44,4 +44,84 @@
 <li>연구동아리 대상, 전북대 자연과학대학 (2021)</li></ul>
 </section>
 </div>
-</main></body></html>
+</main>
+<main class="page detail">
+<div class="detail-head"><span>이상학 · 경력 상세</span><span>2 / 3</span></div>
+
+<article class="case">
+<div class="case-title"><h2>① 감시·예측 산출물 적재 파이프라인</h2><span>GeoSR · 2025.06 – 2026.04</span></div>
+<p class="lead">4개 기관(KIOST·NIFS·KHOA·KOPRI)이 매월 보내는 11종 해양·기상 감시·예측 산출물(NetCDF·CSV)을 검증해 DB에 적재하고 GeoServer 레이어로 발행하는 폐쇄망 파이프라인</p>
+<div class="case-body">
+<div>
+<dl class="facts">
+<dt>역할</dt><dd>데이터 모델 설계, 규격 검증·공간 변환·ETL 개발, 명세서·시험 문서 작성</dd>
+<dt>설계</dt><dd>산출물 <b>메타데이터</b>(자료종류·연월·감시/예측·등록 일시·공개 여부)와 <b>검증 결과</b>, <b>관측·예측 값</b>을 별도 테이블로 분리해 파일 단위로 원본–검증–적재를 추적</dd>
+<dt>검증</dt><dd>입력 규격표 대비 Class·Variable·Level(depth)·Unit 항목을 자동 비교해 파일별 통과 여부와 오류 항목을 기록</dd>
+<dt>처리</dt><dd>Python·Shell·Docker 파일 감시, 래스터 재격자화·재투영, U/V 성분에서 유속·방향 산출, Upsert·트랜잭션·재처리, 스케줄링</dd>
+<dt>결과</dt><dd>항목별 판정 보고서, GeoTIFF·해류 벡터 CSV, 지정 GeoServer 레이어. 코드·검증 문서 GitHub 공개</dd>
+</dl>
+</div>
+<figure class="erd"><svg viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+<g font-size="9.5"><rect x="6" y="6" width="150" height="104" rx="6" fill="#f1f5fd" stroke="#1f4fd1"/><text x="14" y="22" font-weight="700" fill="#1f4fd1">파일 카탈로그</text><text x="14" y="38">sn (일련번호)</text><text x="14" y="52">data_knt · year · month</text><text x="14" y="66">section (감시/예측)</text><text x="14" y="80">file_nm1–4</text><text x="14" y="94">frst_regist_dt · 공개 여부</text>
+<rect x="170" y="6" width="124" height="74" rx="6" fill="#fff" stroke="#1f4fd1"/><text x="178" y="22" font-weight="700" fill="#1f4fd1">검증 결과</text><text x="178" y="38">file_nm</text><text x="178" y="52">file_insp_rslt (Y/N)</text><text x="178" y="66">file_err (오류 항목)</text>
+<rect x="76" y="140" width="150" height="84" rx="6" fill="#fff" stroke="#1f4fd1"/><text x="84" y="156" font-weight="700" fill="#1f4fd1">값 테이블 (해류 등)</text><text x="84" y="172">lat · lon · dp</text><text x="84" y="186">ve (유속) · drc (방향)</text><text x="84" y="200">file_nm · div</text></g>
+<g stroke="#5b6573" stroke-dasharray="3 2" fill="none"><path d="M156 50 H170"/><path d="M232 80 V110 H190 V140"/><path d="M80 110 V125 H140 V140"/></g>
+<text x="150" y="124" font-size="8" fill="#5b6573" text-anchor="middle">file_nm 으로 연결</text>
+</svg><figcaption>적재 구조 (실제 테이블 기준 요약)</figcaption></figure>
+</div>
+<p class="next"><b>다시 설계한다면</b> (자료종류, 연월, 구분)을 유니크 키로 두고 file_id 외래키로 세 테이블을 연결, 유속·방향은 numeric 타입과 단위 컬럼으로 관리해 조회 성능과 정합성을 높이겠습니다.</p>
+</article>
+
+<article class="case">
+<div class="case-title"><h2>② AIS 운항 데이터 정제·활동 탐지</h2><span>GeoSR · 2024 – 2025</span></div>
+<p class="lead">부산 해역 과거 AIS 관측을 선박 메타데이터·항로·정박지 폴리곤과 결합해 정박·정류·항로 이탈 등 활동 후보를 탐지하고 시각화</p>
+<dl class="facts">
+<dt>역할</dt><dd>궤적 전처리, 공간 규칙·시간 동기화 탐지 로직, 병렬 시각화 개발. 학회 포스터 제작과 워크숍 발표 참여</dd>
+<dt>정제</dt><dd>TB 단위 원자료에서 이상치·중복 제거, 선박별 시간 단위 정렬·동기화, 속도·선수방향·변위 파생 변수 생성</dd>
+<dt>설계</dt><dd>항로·정박지 폴리곤 공간 소속과 이동 특성을 결합한 <b>읽을 수 있는 규칙</b>으로 활동 후보를 판정해, 판정 근거를 사람이 검토할 수 있게 구성</dd>
+<dt>처리</dt><dd>GeoPandas 공간 결합, multiprocessing 병렬 처리로 지도 타임랩스 대량 생성</dd>
+<dt>결과</dt><dd>2024 한국해양환경에너지학회 추계학술대회 포스터, 2025.01 워크숍 발표(10쪽), 공개 표본 78.8만 건·1,070척 저장소</dd>
+</dl>
+</article>
+</main>
+
+<main class="page detail">
+<div class="detail-head"><span>이상학 · 경력 상세</span><span>3 / 3</span></div>
+
+<article class="case">
+<div class="case-title"><h2>③ Marine Travel AI Agent — LLM이 쓰는 공공데이터 관리</h2><span>GeoSR 사내 기술개발 · 2026</span></div>
+<p class="lead">관광·해양예보·기상·교통 공공데이터를 수집·검증해 LLM 에이전트가 근거를 확인할 수 있는 형태로 제공하는 서비스. 학습용 데이터셋이 아닌 <b>LLM이 참조하는 외부 데이터</b>의 품질 관리 경험</p>
+<figure class="flow"><svg viewBox="0 0 560 70" xmlns="http://www.w3.org/2000/svg" font-size="10">
+<g fill="#f1f5fd" stroke="#1f4fd1"><rect x="2" y="12" width="96" height="46" rx="6"/><rect x="116" y="12" width="104" height="46" rx="6"/><rect x="238" y="12" width="104" height="46" rx="6"/><rect x="360" y="12" width="88" height="46" rx="6"/><rect x="466" y="12" width="92" height="46" rx="6"/></g>
+<g text-anchor="middle"><text x="50" y="32" font-weight="700">공공데이터</text><text x="50" y="47" font-size="8.5">TourAPI·해양예보 8종</text>
+<text x="168" y="32" font-weight="700">수집 자동화</text><text x="168" y="47" font-size="8.5">n8n 일·주 단위</text>
+<text x="290" y="32" font-weight="700">품질 검사</text><text x="290" y="47" font-size="8.5">중복·좌표·누락·최신성</text>
+<text x="404" y="32" font-weight="700">타입 검증 도구</text><text x="404" y="47" font-size="8.5">8개</text>
+<text x="512" y="32" font-weight="700">LLM 에이전트</text><text x="512" y="47" font-size="8.5">LangGraph</text></g>
+<g stroke="#5b6573" fill="#5b6573"><path d="M98 35h14"/><path d="M220 35h14"/><path d="M342 35h14"/><path d="M448 35h14"/></g></svg></figure>
+<dl class="facts">
+<dt>역할</dt><dd>공공데이터 연계, 수집 워크플로, 품질 검사·타입 검증 도구, 일정 규칙 엔진 개발</dd>
+<dt>품질</dt><dd>콘텐츠 ID 중복(0건 확인)·좌표 범위·페이지 누락/반복·피드별 최신성 검사, 갱신 실패 시 기존 자료를 유지하는 원자적 교체</dd>
+<dt>메타데이터</dt><dd>수집 시각·예보 발표 시각·출처를 자료와 함께 저장해 LLM 응답의 근거 시점을 확인 가능하게 구성</dd>
+<dt>규모·검증</dt><dd>관광자료 약 1만 건, 해양예보 8종 피드. Python 테스트 195개·Node 28개 통과, Langfuse로 실행 추적</dd>
+</dl>
+</article>
+
+<article class="case">
+<div class="case-title"><h2>④ V-PASS 선박 관측 데이터셋 구축</h2><span>GeoSR · 대상 자료 2023 – 2025</span></div>
+<dl class="facts">
+<dt>처리</dt><dd>연도별 스트리밍 병합, 속력·선박 ID 필터, 월·계절 집계, 권역별 격자 배정과 count 합산, 가중 Quartic KDE 밀도 지도, 어획 등급 결합</dd>
+<dt>검증</dt><dd>제외 자료·격자 배정·집계량 대사 보고서로 입력과 산출 건수를 맞춰 확인, 방법론·검증 기록 공개</dd>
+</dl>
+</article>
+
+<article class="case">
+<div class="case-title"><h2>⑤ 예보 시스템 구축·운영과 분석</h2><span>GeoSR · 2023 – 2025</span></div>
+<dl class="facts">
+<dt>구축</dt><dd>예보지수·해황예보도 생산 서버 견적·설치, 원격접속·패킷필터링, Oracle DB·Tomcat·Python/Java 실행환경, 백업 NAS(2025)</dd>
+<dt>운영</dt><dd>생산 스케줄 구성, 일일 산출 모니터링, 장애 대응과 보고</dd>
+<dt>분석</dt><dd>신·구 모델 산출물 비교, 특이기상일수·누리집·OpenAPI 활용도 분석과 월간 통계·요약집 작성</dd>
+</dl>
+</article>
+</main>
+</body></html>
