@@ -51,8 +51,7 @@
 <article class="case">
 <div class="case-title"><h2>① 감시·예측 산출물 적재 파이프라인</h2><span>GeoSR · 2025.06 – 2026.04</span></div>
 <p class="lead">4개 기관(KIOST·NIFS·KHOA·KOPRI)이 매월 보내는 11종 해양·기상 감시·예측 산출물(NetCDF·CSV)을 검증해 DB에 적재하고 GeoServer 레이어로 발행하는 폐쇄망 파이프라인</p>
-<div class="case-body">
-<div>
+
 <dl class="facts">
 <dt>역할</dt><dd>데이터 모델 설계, 규격 검증·공간 변환·ETL 개발 및 기술 문서 작성</dd>
 <dt>설계</dt><dd>산출물 <b>메타데이터</b>(자료종류·연월·감시/예측·등록 일시·공개 여부)와 <b>검증 결과</b>, <b>관측·예측 값</b>을 별도 테이블로 분리. 관리 테이블은 (자료종류, 연도, 월, 구분) 조합으로 조회·갱신하고, 검증 결과·값은 파일명으로 연결해 원본–검증–적재를 추적</dd>
@@ -60,15 +59,7 @@
 <dt>처리</dt><dd>Python·Shell·Docker 파일 감시, 래스터 재격자화·재투영, U/V 성분에서 유속·방향 산출, Upsert·트랜잭션·재처리, 스케줄링</dd>
 <dt>결과</dt><dd>항목별 판정 보고서, GeoTIFF·해류 벡터 CSV, 지정 GeoServer 레이어. 코드·검증 문서 GitHub 공개</dd>
 </dl>
-</div>
-<figure class="erd"><svg viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
-<g font-size="9.5"><rect x="6" y="6" width="150" height="104" rx="6" fill="#f1f5fd" stroke="#1f4fd1"/><text x="14" y="22" font-weight="700" fill="#1f4fd1">파일 카탈로그</text><text x="14" y="38">sn (일련번호)</text><text x="14" y="52">data_knt · year · month</text><text x="14" y="66">section (감시/예측)</text><text x="14" y="80">file_nm1–4</text><text x="14" y="94">frst_regist_dt · 공개 여부</text>
-<rect x="170" y="6" width="124" height="74" rx="6" fill="#fff" stroke="#1f4fd1"/><text x="178" y="22" font-weight="700" fill="#1f4fd1">검증 결과</text><text x="178" y="38">file_nm</text><text x="178" y="52">file_insp_rslt (Y/N)</text><text x="178" y="66">file_err (오류 항목)</text>
-<rect x="76" y="140" width="150" height="84" rx="6" fill="#fff" stroke="#1f4fd1"/><text x="84" y="156" font-weight="700" fill="#1f4fd1">값 테이블 (해류 등)</text><text x="84" y="172">lat · lon · dp</text><text x="84" y="186">ve (유속) · drc (방향)</text><text x="84" y="200">file_nm · div</text></g>
-<g stroke="#5b6573" stroke-dasharray="3 2" fill="none"><path d="M156 50 H170"/><path d="M232 80 V110 H190 V140"/><path d="M80 110 V125 H140 V140"/></g>
-<text x="150" y="124" font-size="8" fill="#5b6573" text-anchor="middle">file_nm 으로 연결</text>
-</svg><figcaption>적재 구조 (실제 테이블 기준 요약)</figcaption></figure>
-</div>
+<figure class="erd"><svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg" font-size="11.5" font-family="inherit"><rect x="2" y="4" width="200" height="118" rx="7" fill="#f1f5fd" stroke="#1f4fd1"/><text x="12" y="24" font-weight="700" fill="#1f4fd1">파일 카탈로그</text><text x="12" y="44">sn (일련번호)</text><text x="12" y="60">data_knt · year · month</text><text x="12" y="76">section (감시/예측)</text><text x="12" y="92">file_nm1–4 · frst_regist_dt</text><text x="12" y="108">공개 여부</text><rect x="232" y="4" width="170" height="118" rx="7" fill="#fff" stroke="#1f4fd1"/><text x="242" y="24" font-weight="700" fill="#1f4fd1">검증 결과</text><text x="242" y="44">file_nm</text><text x="242" y="60">file_insp_rslt (Y/N)</text><text x="242" y="76">file_err (오류 항목)</text><rect x="432" y="4" width="166" height="118" rx="7" fill="#fff" stroke="#1f4fd1"/><text x="442" y="24" font-weight="700" fill="#1f4fd1">값 테이블 (해류 등)</text><text x="442" y="44">lat · lon · dp</text><text x="442" y="60">ve (유속) · drc (방향)</text><text x="442" y="76">file_nm · div</text><g stroke="#5b6573" stroke-dasharray="4 3"><path d="M202 60 H232"/><path d="M402 60 H432"/></g><text x="102" y="142" font-size="10" fill="#5b6573" text-anchor="middle">(자료종류·연·월·구분)으로 조회·갱신</text><text x="417" y="142" font-size="10" fill="#5b6573" text-anchor="middle">file_nm 으로 연결</text></svg><figcaption>적재 구조 (실제 테이블 기준 요약)</figcaption></figure>
 <p class="next"><b>변경 감지·증분 처리</b> 파일별 크기·수정시각·SHA-256을 처리 로그(filename·size·mtime·sha256·processed_at)로 관리하고, 변경된 파일만 규격 검증을 다시 수행하도록 구현했습니다.</p>
 </article>
 
@@ -118,8 +109,8 @@
 <article class="case">
 <div class="case-title"><h2>⑤ 예보 시스템 구축·운영과 분석</h2><span>GeoSR · 2023 – 2025</span></div>
 <dl class="facts">
-<dt>구축</dt><dd>예보지수·해황예보도 생산 서버 견적·설치, 원격접속·패킷필터링, Oracle DB·Tomcat·Python/Java 실행환경, 백업 NAS(2025)</dd>
-<dt>운영</dt><dd>생산 스케줄 구성, 일일 산출 모니터링, 장애 대응과 보고</dd>
+<dt>구축</dt><dd>예보지수·해황예보도 생산 서버 견적·설치, 원격접속·패킷필터링, Oracle DB·Tomcat·Python/Java 실행환경</dd>
+<dt>운영</dt><dd>생산 스케줄 구성, 일일 산출 모니터링, 장애 대응과 보고, 백업 NAS 구축(2025)</dd>
 <dt>분석</dt><dd>신·구 모델 산출물 비교, 특이기상일수·누리집·OpenAPI 활용도 분석과 월간 통계·요약집 작성</dd>
 </dl>
 </article>

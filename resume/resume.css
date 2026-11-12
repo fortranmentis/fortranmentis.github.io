@@ -31,3 +31,9 @@ html[lang=en] .facts{grid-template-columns:20mm 1fr}
 .erd svg,.flow svg{width:100%;height:auto;display:block}.erd figcaption{font-size:7.8pt;color:#5b6573;text-align:center;margin-top:1mm}
 .flow{margin:1mm 0 3mm}
 .next{margin-top:2.5mm;padding:2.5mm 3.5mm;background:#f1f5fd;border-radius:2.5mm}.next b{color:#1f4fd1;margin-right:2mm}
+/* Detail pages: fill space, larger ERD text */
+.detail{font-size:10.2pt;line-height:1.6}html[lang=en] .detail{font-size:9.8pt}
+.detail .case{margin-bottom:7mm}.detail .facts{row-gap:2.2mm}.detail .lead{margin-bottom:3.5mm}
+.detail .case-title h2{font-size:12.5pt}
+.detail .case-body{grid-template-columns:1fr 72mm}
+.erd{margin-top:3mm}
