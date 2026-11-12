@@ -14,11 +14,11 @@
 <div class="job"><div class="job-head"><h3>GeoSR(지오시스템리서치) · Data Engineer</h3><span>2023.02 – 현재</span></div>
 <ul>
 <li><b>운항 데이터 수집·정제</b> — 부산 해역 AIS 궤적을 TB 단위로 정제(이상치·중복 제거, 시간 동기화)하고 속도·선수방향·항로·정박지 정보와 결합해 정박·정류·항로 이탈 후보 데이터셋 구축(GeoPandas, multiprocessing)</li>
-<li><b>V-PASS 데이터셋 구축</b> — 2023–2025년 선박 관측자료의 스트리밍 병합·필터링, 권역·격자 단위 통계 데이터셋과 밀도 지도 생성, 어획 등급 데이터와 결합</li>
+<li><b>V-PASS 데이터셋 구축</b> — 선박 관측자료(대상 자료: 2023–2025년)의 스트리밍 병합·필터링, 권역·격자 단위 통계 데이터셋과 밀도 지도 생성, 어획 등급 데이터와 결합</li>
 <li><b>기상·해양 데이터 파이프라인</b> — 해양·해빙 예보 NetCDF·CSV 수집 → 규격 검증 → 래스터·해류 벡터 변환 → PostgreSQL 적재 → GeoServer 레이어 발행 자동화(Python·Shell·Docker, 폐쇄망)</li>
-<li><b>데이터 모델링</b> — 적재용 PostgreSQL 테이블·스키마 직접 설계, Upsert·트랜잭션·재처리 구조 구현</li>
-<li><b>데이터 품질 검증</b> — 입력 규격(변수·차원·단위) 항목별 검증 보고서, 제외 자료·집계량 대사, 서비스 지점–모델 격자 매칭 검증, 신·구 산출물 비교 통계</li>
-<li><b>메타데이터 관리</b> — 처리·오류 이력, 입력 규격표와 데이터 명세서를 관리해 데이터 계보(lineage) 추적 가능하게 구성</li>
+<li><b>데이터 모델링</b> — 4개 기관 11종 감시·예측 산출물의 적재 구조를 <b>파일 카탈로그</b>(자료종류·연월·감시/예측 구분·공개 여부), <b>검증 결과</b>(파일별 통과 여부·오류 항목), <b>값 테이블</b>(해류 위경도·유속·방향·깊이)로 분리 설계하고 파일명으로 연결</li>
+<li><b>데이터 품질 검증</b> — 입력 규격(Class·Variable·Level·Unit) 항목별 자동 검증과 오류 기록, 제외 자료·집계량 대사, 서비스 지점–모델 격자 매칭 검증, 신·구 산출물 비교 통계</li>
+<li><b>메타데이터 관리</b> — 처리·오류 이력과 입력 규격표·데이터 명세서를 관리하고, 원본 파일–검증 결과–적재 값을 파일 단위로 추적</li>
 <li><b>시스템 구축·운영·문서화</b> — 예보 생산 서버 구축(Oracle DB, Tomcat), 스케줄링·모니터링·장애 대응, 요구사항 정의·시험 문서, 학회 포스터(2024)·워크숍 발표(2025)</li>
 </ul></div>
 <div class="job"><div class="job-head"><h3>한국기상산업기술원 R&amp;D기획실 · 인턴</h3><span>2022.06 – 2022.09</span></div>
@@ -26,9 +26,8 @@
 </section>
 
 <section><h2>대표 프로젝트</h2>
-<div class="proj"><h3>Ocean Forecast GeoPipeline <span>2025.06 – 2026.04</span></h3><p>NetCDF 예보 산출물의 규격 검증·공간 변환·DB 적재·레이어 발행을 처리 이력과 함께 자동화</p></div>
-<div class="proj"><h3>AIS Trajectory Analytics <span>2024 – 2025</span></h3><p>AIS 궤적 + 항로·정박지 폴리곤 결합 활동 후보 탐지 · 한국해양환경에너지학회 추계학술대회 포스터</p></div>
-<div class="proj"><h3>V-PASS Spatial Analytics <span>2023 – 2025</span></h3><p>선박 관측자료를 권역·격자 통계와 밀도 지도로 변환, 검증 기록 공개</p></div>
+<div class="proj"><h3>Marine Travel AI Agent · GeoSR 사내 기술개발 <span>2026</span></h3><p>LLM 에이전트가 쓰는 공공데이터 관리 — TourAPI 관광자료·해양예보 8종 수집 자동화(n8n), ID 중복·좌표 범위·페이지 누락·피드별 최신성 검사, 수집·발표 시각 관리, 타입 검증 도구로 LLM 연계(LangGraph, FastAPI)</p></div>
+<div class="proj"><h3>AIS Trajectory Analytics · Ocean Forecast GeoPipeline <span>2024 – 2026</span></h3><p>한국해양환경에너지학회 추계학술대회 포스터(2024)·워크숍 발표(2025) · 파이프라인 코드와 검증 문서 GitHub 공개</p></div>
 </section>
 
 <div class="two">
@@ -36,7 +35,7 @@
 <dl class="skills"><dt>데이터</dt><dd>Python, SQL, PostgreSQL, Oracle, Pandas, GeoPandas</dd>
 <dt>포맷·공간</dt><dd>NetCDF, AIS, V-PASS, GeoTIFF, GeoServer, QGIS</dd>
 <dt>인프라</dt><dd>Linux, Shell, Docker, 스케줄링·모니터링</dd>
-<dt>기타</dt><dd>Fortran, Rust, LLM 기반 AI 에이전트 개발</dd></dl>
+<dt>기타</dt><dd>LangGraph, FastAPI, Ollama (LLM 에이전트), Fortran, Rust</dd></dl>
 </section>
 <section><h2>자격 · 학력</h2>
 <ul class="plain"><li>기상예보사 면허 · 기상기사 · 해양환경기사</li>

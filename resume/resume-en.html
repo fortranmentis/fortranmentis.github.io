@@ -14,11 +14,11 @@
 <div class="job"><div class="job-head"><h3>GeoSR (Geo System Research) · Data Engineer</h3><span>Feb 2023 – Present</span></div>
 <ul>
 <li><b>Vessel data collection &amp; cleansing</b> — Cleaned TB-scale AIS trajectories for the Busan area (outliers, duplicates, time alignment) and joined route/anchorage data to build anchoring, loitering and route-deviation candidate datasets (GeoPandas, multiprocessing).</li>
-<li><b>V-PASS dataset construction</b> — Streaming merge and filtering of 2023–2025 vessel observations into regional/grid statistical datasets and density maps, joined with catch-grade data.</li>
+<li><b>V-PASS dataset construction</b> — Streaming merge and filtering of vessel observations (data years 2023–2025) into regional/grid statistical datasets and density maps, joined with catch-grade data.</li>
 <li><b>Weather &amp; ocean data pipeline</b> — Automated NetCDF/CSV ingestion → spec validation → raster and current-vector conversion → PostgreSQL loading → GeoServer publishing (Python, Shell, Docker, air-gapped).</li>
-<li><b>Data modeling</b> — Designed PostgreSQL tables and schemas; implemented upserts, transactions and reprocessing.</li>
-<li><b>Data quality validation</b> — Item-level spec reports (variables, dimensions, units), exclusion and count reconciliation, service-point to model-grid matching checks, old vs. new product comparisons.</li>
-<li><b>Metadata management</b> — Maintained processing/error history, input spec sheets and data specifications to keep lineage traceable.</li>
+<li><b>Data modeling</b> — Split loading for 11 monitoring/forecast products from 4 institutions into a <b>file catalog</b> (data type, year-month, monitoring/forecast, publication flag), <b>validation results</b> (per-file pass/fail and error items) and <b>value tables</b> (current lat/lon, speed, direction, depth), linked by file name.</li>
+<li><b>Data quality validation</b> — Automated spec checks (Class, Variable, Level, Unit) with error records, exclusion and count reconciliation, service-point to model-grid matching, old vs. new product comparisons.</li>
+<li><b>Metadata management</b> — Maintained processing/error history, input spec sheets and data specifications; traced source file → validation result → loaded values per file.</li>
 <li><b>Systems &amp; documentation</b> — Built forecast production servers (Oracle DB, Tomcat), scheduling, monitoring, incident response; requirements and test documents; conference poster (2024), workshop talk (2025).</li>
 </ul></div>
 <div class="job"><div class="job-head"><h3>Korea Meteorological Industry Promotion Agency · R&amp;D Planning Intern</h3><span>Jun – Sep 2022</span></div>
@@ -26,9 +26,8 @@
 </section>
 
 <section><h2>SELECTED PROJECTS</h2>
-<div class="proj"><h3>Ocean Forecast GeoPipeline <span>2025.06 – 2026.04</span></h3><p>Automated spec checks, spatial conversion, DB loading and layer publishing for NetCDF forecast products, with processing history.</p></div>
-<div class="proj"><h3>AIS Trajectory Analytics <span>2024 – 2025</span></h3><p>Activity-candidate detection combining AIS tracks with route and anchorage polygons; poster at the KOSMEE autumn conference.</p></div>
-<div class="proj"><h3>V-PASS Spatial Analytics <span>2023 – 2025</span></h3><p>Turned vessel observations into regional/grid statistics and density maps, with public validation records.</p></div>
+<div class="proj"><h3>Marine Travel AI Agent · GeoSR internal R&amp;D <span>2026</span></h3><p>Managed public data consumed by an LLM agent — automated TourAPI and 8 marine-forecast feed collection (n8n), duplicate-ID, coordinate-range, missing-page and per-feed freshness checks, collection/issue timestamps, typed validation tools for LLM use (LangGraph, FastAPI).</p></div>
+<div class="proj"><h3>AIS Trajectory Analytics · Ocean Forecast GeoPipeline <span>2024 – 2026</span></h3><p>KOSMEE autumn conference poster (2024) and workshop talk (2025); pipeline code and validation docs public on GitHub.</p></div>
 </section>
 
 <div class="two">
@@ -36,7 +35,7 @@
 <dl class="skills"><dt>Data</dt><dd>Python, SQL, PostgreSQL, Oracle, Pandas, GeoPandas</dd>
 <dt>Formats</dt><dd>NetCDF, AIS, V-PASS, GeoTIFF, GeoServer, QGIS</dd>
 <dt>Infra</dt><dd>Linux, Shell, Docker, scheduling &amp; monitoring</dd>
-<dt>Other</dt><dd>Fortran, Rust, LLM-based AI agent development</dd></dl>
+<dt>Other</dt><dd>Fortran, Rust, LangGraph, FastAPI, Ollama (LLM agents)</dd></dl>
 </section>
 <section><h2>CREDENTIALS · EDUCATION</h2>
 <ul class="plain"><li>Weather Forecaster License · Engineer Meteorology · Engineer Ocean Environment</li>
