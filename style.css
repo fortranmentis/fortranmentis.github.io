@@ -102,3 +102,6 @@ html[lang=ko] .node{font-size:20px}
 .seminar-update{padding-top:48px;padding-bottom:56px;border-top:1px solid var(--line,#ddd)}
 .seminar-update h3{font-size:clamp(25px,3vw,38px);line-height:1.3;margin:12px 0}
 .seminar-update p{max-width:760px;line-height:1.8}
+
+/* Supporting career evidence stays expandable beside the main case studies. */
+.career-supplement{margin-top:28px;padding:28px 32px;background:var(--soft);border-radius:26px}.career-supplement summary{font-size:19px;font-weight:600;cursor:pointer;line-height:1.5}.career-supplement h4{font-size:24px;line-height:1.3;margin:26px 0 12px}.career-supplement .case-facts{margin-bottom:0}@media(max-width:540px){.career-supplement{padding:24px}.career-supplement summary{font-size:17px}.career-supplement h4{font-size:21px}}
